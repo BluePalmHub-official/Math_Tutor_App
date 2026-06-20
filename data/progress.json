@@ -1,0 +1,178 @@
+{
+  "student_name": "Kyle",
+  "algebra": {
+    "linear_equations": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "inequalities": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "quadratics": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "exponents_radicals": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "word_problems": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    }
+  },
+  "geometry": {
+    "status": "locked",
+    "angles_lines": {
+      "learn": {
+        "status": "locked"
+      },
+      "practice": {
+        "status": "locked",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "locked",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "triangles": {
+      "learn": {
+        "status": "locked"
+      },
+      "practice": {
+        "status": "locked",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "locked",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "polygons": {
+      "learn": {
+        "status": "locked"
+      },
+      "practice": {
+        "status": "locked",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "locked",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "circles": {
+      "learn": {
+        "status": "locked"
+      },
+      "practice": {
+        "status": "locked",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "locked",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "coordinate_geometry": {
+      "learn": {
+        "status": "locked"
+      },
+      "practice": {
+        "status": "locked",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "locked",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    }
+  }
+}
