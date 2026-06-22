@@ -111,3 +111,107 @@ ModuleNotFoundError: No module named 'gui.screens.progress_screen'
 2026-06-20 11:47:41 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
 2026-06-20 11:47:41 [DEBUG   ] core.progress_tracker: Progress saved.
 2026-06-20 11:47:41 [INFO    ] MathApp: App exited cleanly
+2026-06-22 13:34:29 [INFO    ] MathApp: ============================================================
+2026-06-22 13:34:29 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 13:34:29 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 13:34:29 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 13:34:30 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 13:34:30 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 13:34:30 [INFO    ] MathApp: Entering main loop
+2026-06-22 13:34:34 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 13:34:36 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 13:34:37 [INFO    ] gui.screens.learn_screen: Loaded content module: content.algebra.linear_equations
+2026-06-22 13:34:38 [ERROR   ] gui.app_root: show_screen: failed to load 'learn': bad screen distance "0 16"
+Traceback (most recent call last):
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/app_root.py", line 124, in show_screen
+    screen = ScreenClass(
+        parent=self.container,
+        app=self,
+        **kwargs,
+    )
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/screens/learn_screen.py", line 77, in __init__
+    self._show_section(_SEC_CONCEPTS)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/screens/learn_screen.py", line 339, in _show_section
+    self._show_concept_card()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/screens/learn_screen.py", line 431, in _show_concept_card
+    tk.Label(
+    ~~~~~~~~^
+        card_frame,
+        ^^^^^^^^^^^
+    ...<5 lines>...
+        padx=PAD["md"], pady=(0, PAD["md"]),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).pack(anchor="w")
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/tkinter/__init__.py", line 3361, in __init__
+    Widget.__init__(self, master, 'label', cnf, kw)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/tkinter/__init__.py", line 2772, in __init__
+    self.tk.call(
+    ~~~~~~~~~~~~^
+        (widgetName, self._w) + extra + self._options(cnf))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: bad screen distance "0 16"
+2026-06-22 13:34:57 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 13:34:58 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 13:35:00 [INFO    ] gui.screens.learn_screen: Loaded content module: content.algebra.linear_equations
+2026-06-22 13:35:00 [ERROR   ] gui.app_root: show_screen: failed to load 'learn': bad screen distance "0 16"
+Traceback (most recent call last):
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/app_root.py", line 124, in show_screen
+    screen = ScreenClass(
+        parent=self.container,
+        app=self,
+        **kwargs,
+    )
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/screens/learn_screen.py", line 77, in __init__
+    self._show_section(_SEC_CONCEPTS)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/screens/learn_screen.py", line 339, in _show_section
+    self._show_concept_card()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/lason2057/PycharmProjects/Math_Tutor_App/gui/screens/learn_screen.py", line 431, in _show_concept_card
+    tk.Label(
+    ~~~~~~~~^
+        card_frame,
+        ^^^^^^^^^^^
+    ...<5 lines>...
+        padx=PAD["md"], pady=(0, PAD["md"]),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).pack(anchor="w")
+    ^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/tkinter/__init__.py", line 3361, in __init__
+    Widget.__init__(self, master, 'label', cnf, kw)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/tkinter/__init__.py", line 2772, in __init__
+    self.tk.call(
+    ~~~~~~~~~~~~^
+        (widgetName, self._w) + extra + self._options(cnf))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_tkinter.TclError: bad screen distance "0 16"
+2026-06-22 13:35:26 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 13:35:26 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 13:35:26 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 13:35:26 [INFO    ] MathApp: App exited cleanly
+2026-06-22 13:44:33 [INFO    ] MathApp: ============================================================
+2026-06-22 13:44:33 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 13:44:34 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 13:44:34 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 13:44:34 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 13:44:34 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 13:44:34 [INFO    ] MathApp: Entering main loop
+2026-06-22 13:44:39 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 13:44:41 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 13:44:42 [INFO    ] gui.screens.learn_screen: Loaded content module: content.algebra.linear_equations
+2026-06-22 13:44:42 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 13:45:30 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 13:45:32 [ERROR   ] gui.screens.learn_screen: Could not load content module content.algebra.inequalities: No module named 'content.algebra.inequalities'
+2026-06-22 13:45:32 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 13:45:40 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 13:45:41 [INFO    ] gui.screens.learn_screen: Loaded content module: content.algebra.linear_equations
+2026-06-22 13:45:41 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 13:49:08 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 13:49:08 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 13:49:08 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 13:49:08 [INFO    ] MathApp: App exited cleanly

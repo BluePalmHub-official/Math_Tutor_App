@@ -39,10 +39,10 @@ _SEC_MISTAKES  = "mistakes"
 _SEC_VOCAB     = "vocab"
 
 _SECTION_LABELS = {
-    _SEC_CONCEPTS: "📖  Concepts",
-    _SEC_EXAMPLES: "✏️  Worked Examples",
-    _SEC_MISTAKES: "⚠️  Common Mistakes",
-    _SEC_VOCAB:    "📝  Vocabulary",
+    _SEC_CONCEPTS: "Concepts",
+    _SEC_EXAMPLES: "Worked Examples",
+    _SEC_MISTAKES: "Common Mistakes",
+    _SEC_VOCAB:    "Vocabulary",
 }
 
 
@@ -270,7 +270,7 @@ class LearnScreen(tk.Frame):
 
         self._prev_btn = make_button(
             btn_row, "← Previous", self._on_prev,
-            variant="ghost", pady=6, padx=14, size="small_bold",
+            variant="primary", pady=6, padx=14, size="small_bold",
         )
         self._prev_btn.pack(side="left")
 
@@ -283,7 +283,7 @@ class LearnScreen(tk.Frame):
 
         self._ready_btn = make_button(
             btn_row, "I'm Ready to Practice →", self._on_ready,
-            variant="success", pady=6, padx=14, size="small_bold",
+            variant="primary", pady=6, padx=14, size="small_bold",
         )
         # Hidden until all content viewed
         self._ready_btn_visible = False
@@ -351,6 +351,7 @@ class LearnScreen(tk.Frame):
     # -----------------------------------------------------------------------
 
     def _show_concept_card(self) -> None:
+        self._clear_content()
         cards = getattr(self._content, "CONCEPT_CARDS", []) if self._content else []
         if not cards:
             self._show_placeholder("No concept cards available for this topic.")
@@ -435,7 +436,7 @@ class LearnScreen(tk.Frame):
                 fg=COLOURS["text_secondary"],
                 bg=COLOURS["bg_card"],
                 justify="left",
-                padx=PAD["md"], pady=(0, PAD["md"]),
+                padx=PAD["md"], pady=PAD["md"],
             ).pack(anchor="w")
 
         # Seen all check mark
@@ -455,6 +456,7 @@ class LearnScreen(tk.Frame):
     # -----------------------------------------------------------------------
 
     def _show_worked_example(self) -> None:
+        self._clear_content()
         examples = getattr(self._content, "WORKED_EXAMPLES", []) if self._content else []
         if not examples:
             self._show_placeholder("No worked examples available for this topic.")
@@ -498,7 +500,7 @@ class LearnScreen(tk.Frame):
             font=FONTS["mono_large"],
             fg=COLOURS["text_primary"],
             bg=COLOURS["bg_card"],
-            padx=PAD["md"], pady=(0, PAD["md"]),
+            padx=PAD["md"], pady=PAD["md"],
         ).pack(anchor="w")
 
         # Steps — revealed one at a time
@@ -574,7 +576,7 @@ class LearnScreen(tk.Frame):
                 content,
                 f"Reveal Step {steps_shown + 1} of {len(steps)} →",
                 self._on_reveal_step,
-                variant="warning", pady=8,
+                variant="primary", pady=8,
             ).pack(anchor="w", pady=(PAD["sm"], 0))
         else:
             if idx + 1 < total:
@@ -656,7 +658,7 @@ class LearnScreen(tk.Frame):
                 font=FONTS["small"],
                 fg=COLOURS["accent_green"],
                 bg=COLOURS["bg_card"],
-                padx=PAD["md"], pady=(0, PAD["sm"]),
+                padx=PAD["md"], pady=PAD["sm"],
                 wraplength=520,
                 justify="left",
             ).pack(anchor="w")
@@ -705,7 +707,7 @@ class LearnScreen(tk.Frame):
                 font=FONTS["body"],
                 fg=COLOURS["text_primary"],
                 bg=COLOURS["bg_card"],
-                padx=PAD["md"], pady=(0, PAD["sm"]),
+                padx=PAD["md"], pady=PAD["sm"],
                 wraplength=520,
                 justify="left",
             ).pack(anchor="w")
