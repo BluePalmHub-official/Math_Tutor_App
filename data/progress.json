@@ -7,8 +7,8 @@
       },
       "practice": {
         "status": "complete",
-        "best_streak": 6,
-        "attempts": 12
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
         "status": "mastered",
@@ -20,86 +20,86 @@
     },
     "inequalities": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "quadratics": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "exponents_radicals": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "word_problems": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     }
   },
   "geometry": {
-    "status": "locked",
+    "status": "not_started",
     "angles_lines": {
       "learn": {
-        "status": "locked"
+        "status": "complete"
       },
       "practice": {
-        "status": "locked",
+        "status": "in_progress",
         "best_streak": 0,
-        "attempts": 0
+        "attempts": 1
       },
       "evaluate": {
-        "status": "locked",
+        "status": "not_started",
         "attempts": 0,
         "best_score": 0,
         "mastered": false,
@@ -108,15 +108,15 @@
     },
     "triangles": {
       "learn": {
-        "status": "locked"
+        "status": "not_started"
       },
       "practice": {
-        "status": "locked",
+        "status": "not_started",
         "best_streak": 0,
         "attempts": 0
       },
       "evaluate": {
-        "status": "locked",
+        "status": "not_started",
         "attempts": 0,
         "best_score": 0,
         "mastered": false,
@@ -125,15 +125,15 @@
     },
     "polygons": {
       "learn": {
-        "status": "locked"
+        "status": "not_started"
       },
       "practice": {
-        "status": "locked",
+        "status": "not_started",
         "best_streak": 0,
         "attempts": 0
       },
       "evaluate": {
-        "status": "locked",
+        "status": "not_started",
         "attempts": 0,
         "best_score": 0,
         "mastered": false,
@@ -142,15 +142,15 @@
     },
     "circles": {
       "learn": {
-        "status": "locked"
+        "status": "not_started"
       },
       "practice": {
-        "status": "locked",
+        "status": "not_started",
         "best_streak": 0,
         "attempts": 0
       },
       "evaluate": {
-        "status": "locked",
+        "status": "not_started",
         "attempts": 0,
         "best_score": 0,
         "mastered": false,
@@ -159,15 +159,15 @@
     },
     "coordinate_geometry": {
       "learn": {
-        "status": "locked"
+        "status": "complete"
       },
       "practice": {
-        "status": "locked",
+        "status": "not_started",
         "best_streak": 0,
         "attempts": 0
       },
       "evaluate": {
-        "status": "locked",
+        "status": "not_started",
         "attempts": 0,
         "best_score": 0,
         "mastered": false,

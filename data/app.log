@@ -407,3 +407,141 @@ _tkinter.TclError: bad screen distance "0 16"
 2026-06-22 15:00:38 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
 2026-06-22 15:00:38 [DEBUG   ] core.progress_tracker: Progress saved.
 2026-06-22 15:00:38 [INFO    ] MathApp: App exited cleanly
+2026-06-22 15:47:38 [INFO    ] MathApp: ============================================================
+2026-06-22 15:47:38 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 15:47:38 [INFO    ] core.progress_tracker: Progress loaded for student: ''
+2026-06-22 15:47:38 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 15:47:38 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 15:47:38 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 15:47:38 [INFO    ] MathApp: Entering main loop
+2026-06-22 15:47:44 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 15:47:44 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 15:47:44 [INFO    ] gui.screens.welcome_screen: New student started: Dennis
+2026-06-22 15:47:44 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 15:47:45 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 15:47:47 [INFO    ] gui.screens.learn_screen: Loaded content module: content.geometry.angles_lines
+2026-06-22 15:47:47 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 15:48:28 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 15:48:32 [INFO    ] gui.screens.learn_screen: Loaded content module: content.geometry.polygons
+2026-06-22 15:48:32 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 15:48:57 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 15:48:57 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 15:48:57 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 15:48:57 [INFO    ] MathApp: App exited cleanly
+2026-06-22 15:49:19 [INFO    ] MathApp: ============================================================
+2026-06-22 15:49:19 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 15:49:20 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 15:49:20 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 15:49:20 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 15:49:20 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 15:49:20 [INFO    ] MathApp: Entering main loop
+2026-06-22 15:49:27 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 15:49:29 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 15:49:31 [INFO    ] gui.screens.learn_screen: Loaded content module: content.geometry.coordinate_geometry
+2026-06-22 15:49:31 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 15:49:58 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 15:49:58 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 15:49:58 [INFO    ] core.progress_tracker: Learn complete: geometry / coordinate_geometry
+2026-06-22 15:49:58 [INFO    ] gui.screens.learn_screen: Learn phase complete: geometry / coordinate_geometry
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [ERROR   ] core.problem_engine: get_problem: module geometry/coordinate_geometry has no generate() function
+2026-06-22 15:49:58 [DEBUG   ] core.problem_engine: get_problem_set: 10 problems for geometry/coordinate_geometry [easy]
+2026-06-22 15:49:58 [INFO    ] core.session_manager: Session started | id=16ebe87f | geometry/coordinate_geometry | phase=practice | difficulty=easy | 10 problems
+2026-06-22 15:49:58 [INFO    ] gui.app_root: Navigated to screen: practice
+2026-06-22 15:52:16 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 15:52:16 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 15:52:16 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 15:52:16 [INFO    ] MathApp: App exited cleanly
+2026-06-22 16:30:08 [INFO    ] MathApp: ============================================================
+2026-06-22 16:30:08 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 16:30:08 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 16:30:08 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 16:30:08 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 16:30:08 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 16:30:08 [INFO    ] MathApp: Entering main loop
+2026-06-22 16:30:12 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 16:30:20 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 16:30:35 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 16:30:41 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 16:30:43 [INFO    ] gui.screens.learn_screen: Loaded content module: content.geometry.angles_lines
+2026-06-22 16:30:43 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 16:31:32 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 16:31:44 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 16:32:20 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 16:32:20 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 16:32:20 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 16:32:20 [INFO    ] MathApp: App exited cleanly
+2026-06-22 16:37:25 [INFO    ] MathApp: ============================================================
+2026-06-22 16:37:25 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 16:37:26 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 16:37:26 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 16:37:26 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 16:37:26 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 16:37:26 [INFO    ] MathApp: Entering main loop
+2026-06-22 16:37:29 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 16:37:30 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 16:37:31 [INFO    ] gui.screens.learn_screen: Loaded content module: content.geometry.angles_lines
+2026-06-22 16:37:31 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 16:37:47 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 16:37:47 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 16:37:47 [INFO    ] core.progress_tracker: Learn complete: geometry / angles_lines
+2026-06-22 16:37:47 [INFO    ] gui.screens.learn_screen: Learn phase complete: geometry / angles_lines
+2026-06-22 16:37:47 [DEBUG   ] core.problem_engine: get_problem_set: 10 problems for geometry/angles_lines [easy]
+2026-06-22 16:37:47 [INFO    ] core.session_manager: Session started | id=16eeab79 | geometry/angles_lines | phase=practice | difficulty=easy | 10 problems
+2026-06-22 16:37:47 [INFO    ] gui.app_root: Navigated to screen: practice
+2026-06-22 16:38:12 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 16:38:12 [DEBUG   ] core.evaluator: Attempt 1 | correct=False | streak=0 | score=0%
+2026-06-22 16:38:12 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 16:38:12 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 16:38:12 [DEBUG   ] core.session_manager: Answer submitted | q=1 | correct=False | streak=0
+2026-06-22 16:38:25 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 16:38:25 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 16:38:25 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 16:38:25 [INFO    ] MathApp: App exited cleanly

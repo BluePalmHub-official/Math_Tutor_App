@@ -358,5 +358,20 @@
     "used_hint": false,
     "used_show_solution": false,
     "feedback": "Keep trying — mistakes are how we learn."
+  },
+  {
+    "session_id": "16eeab79",
+    "subject": "geometry",
+    "topic": "angles_lines",
+    "phase": "practice",
+    "timestamp": "2026-06-22T16:38:12",
+    "q_number": 1,
+    "question": "Two angles are supplementary. One angle is 76°. What is the other angle in degrees?",
+    "student_input": "123",
+    "expected_answer": "104",
+    "correct": false,
+    "used_hint": true,
+    "used_show_solution": false,
+    "feedback": "Almost there — take another look at the steps."
   }
 ]
