@@ -470,10 +470,8 @@ class PracticeScreen(tk.Frame):
     # -----------------------------------------------------------------------
 
     def _on_next_question(self) -> None:
-        """Load the next problem."""
-        from core.problem_engine import get_problem
-        difficulty = self.tracker.get_current_difficulty(self.subject, self.topic)
-        self._current_problem = get_problem(self.subject, self.topic, difficulty)
+        """Load the next problem from the session manager."""
+        self._current_problem = self.sm.next_practice_problem()
         self._render_problem()
 
     def _on_practice_passed(self) -> None:

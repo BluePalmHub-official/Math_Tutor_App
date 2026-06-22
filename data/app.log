@@ -259,3 +259,151 @@ _tkinter.TclError: bad screen distance "0 16"
 2026-06-22 14:16:15 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
 2026-06-22 14:16:15 [DEBUG   ] core.progress_tracker: Progress saved.
 2026-06-22 14:16:15 [INFO    ] MathApp: App exited cleanly
+2026-06-22 14:39:29 [INFO    ] MathApp: ============================================================
+2026-06-22 14:39:29 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 14:39:29 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 14:39:29 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 14:39:29 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 14:39:29 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 14:39:29 [INFO    ] MathApp: Entering main loop
+2026-06-22 14:39:32 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 14:39:34 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 14:39:36 [INFO    ] gui.screens.learn_screen: Loaded content module: content.algebra.linear_equations
+2026-06-22 14:39:36 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 14:39:50 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 14:39:52 [INFO    ] gui.screens.learn_screen: Loaded content module: content.algebra.linear_equations
+2026-06-22 14:39:53 [INFO    ] gui.app_root: Navigated to screen: learn
+2026-06-22 14:40:34 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:40:34 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:40:34 [INFO    ] core.progress_tracker: Learn complete: algebra / linear_equations
+2026-06-22 14:40:34 [INFO    ] gui.screens.learn_screen: Learn phase complete: algebra / linear_equations
+2026-06-22 14:40:34 [DEBUG   ] core.problem_engine: get_problem_set: 10 problems for algebra/linear_equations [easy]
+2026-06-22 14:40:34 [INFO    ] core.session_manager: Session started | id=2936b59e | algebra/linear_equations | phase=practice | difficulty=easy | 10 problems
+2026-06-22 14:40:34 [INFO    ] gui.app_root: Navigated to screen: practice
+2026-06-22 14:40:56 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:40:56 [DEBUG   ] core.evaluator: Attempt 1 | correct=False | streak=0 | score=0%
+2026-06-22 14:40:56 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:40:56 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:40:56 [DEBUG   ] core.session_manager: Answer submitted | q=1 | correct=False | streak=0
+2026-06-22 14:41:46 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:41:46 [DEBUG   ] core.evaluator: Attempt 2 | correct=False | streak=0 | score=0%
+2026-06-22 14:41:46 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:41:46 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:41:46 [DEBUG   ] core.session_manager: Answer submitted | q=2 | correct=False | streak=0
+2026-06-22 14:43:35 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 14:43:35 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:43:35 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:43:35 [INFO    ] MathApp: App exited cleanly
+2026-06-22 14:54:46 [INFO    ] MathApp: ============================================================
+2026-06-22 14:54:46 [INFO    ] MathApp: Math Learning App starting up
+2026-06-22 14:54:47 [INFO    ] core.progress_tracker: Progress loaded for student: 'Dennis'
+2026-06-22 14:54:47 [INFO    ] core.session_manager: SessionManager initialised
+2026-06-22 14:54:47 [INFO    ] gui.app_root: Navigated to screen: welcome
+2026-06-22 14:54:47 [INFO    ] gui.app_root: AppRoot initialised — showing welcome screen
+2026-06-22 14:54:47 [INFO    ] MathApp: Entering main loop
+2026-06-22 14:54:50 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 14:54:51 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 14:54:53 [DEBUG   ] core.problem_engine: get_problem_set: 10 problems for algebra/linear_equations [easy]
+2026-06-22 14:54:53 [INFO    ] core.session_manager: Session started | id=f1d39a32 | algebra/linear_equations | phase=practice | difficulty=easy | 10 problems
+2026-06-22 14:54:53 [INFO    ] gui.app_root: Navigated to screen: practice
+2026-06-22 14:55:22 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:55:22 [DEBUG   ] core.evaluator: Attempt 1 | correct=False | streak=0 | score=0%
+2026-06-22 14:55:22 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:55:22 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:55:22 [DEBUG   ] core.session_manager: Answer submitted | q=1 | correct=False | streak=0
+2026-06-22 14:55:35 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:55:35 [DEBUG   ] core.evaluator: Attempt 2 | correct=True | streak=1 | score=50%
+2026-06-22 14:55:35 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:55:35 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:55:35 [DEBUG   ] core.session_manager: Answer submitted | q=2 | correct=True | streak=1
+2026-06-22 14:55:45 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:55:45 [DEBUG   ] core.evaluator: Attempt 3 | correct=True | streak=2 | score=66%
+2026-06-22 14:55:45 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:55:45 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:55:45 [DEBUG   ] core.session_manager: Answer submitted | q=3 | correct=True | streak=2
+2026-06-22 14:55:54 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:55:54 [DEBUG   ] core.evaluator: Attempt 4 | correct=False | streak=0 | score=50%
+2026-06-22 14:55:54 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:55:54 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:55:54 [DEBUG   ] core.session_manager: Answer submitted | q=4 | correct=False | streak=0
+2026-06-22 14:56:19 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:56:19 [DEBUG   ] core.evaluator: Attempt 5 | correct=True | streak=1 | score=60%
+2026-06-22 14:56:19 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:56:19 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:56:19 [DEBUG   ] core.session_manager: Answer submitted | q=5 | correct=True | streak=1
+2026-06-22 14:56:30 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:56:30 [DEBUG   ] core.evaluator: Attempt 6 | correct=True | streak=2 | score=66%
+2026-06-22 14:56:30 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:56:30 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:56:30 [DEBUG   ] core.session_manager: Answer submitted | q=6 | correct=True | streak=2
+2026-06-22 14:56:51 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:56:51 [DEBUG   ] core.evaluator: Attempt 7 | correct=True | streak=3 | score=71%
+2026-06-22 14:56:51 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:56:51 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:56:51 [DEBUG   ] core.session_manager: Answer submitted | q=7 | correct=True | streak=3
+2026-06-22 14:57:03 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:57:03 [DEBUG   ] core.evaluator: Attempt 8 | correct=True | streak=4 | score=75%
+2026-06-22 14:57:03 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:57:03 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:57:03 [DEBUG   ] core.session_manager: Answer submitted | q=8 | correct=True | streak=4
+2026-06-22 14:57:33 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:57:33 [DEBUG   ] core.evaluator: Attempt 9 | correct=True | streak=5 | score=77%
+2026-06-22 14:57:33 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:57:33 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:57:33 [DEBUG   ] core.session_manager: Answer submitted | q=9 | correct=True | streak=5
+2026-06-22 14:57:49 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:57:49 [DEBUG   ] core.evaluator: Attempt 10 | correct=True | streak=6 | score=80%
+2026-06-22 14:57:49 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:57:49 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:57:49 [DEBUG   ] core.session_manager: Answer submitted | q=10 | correct=True | streak=6
+2026-06-22 14:57:54 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 14:57:57 [DEBUG   ] core.problem_engine: get_problem_set: 10 problems for algebra/linear_equations [easy]
+2026-06-22 14:57:57 [INFO    ] core.session_manager: Session started | id=2a479f96 | algebra/linear_equations | phase=evaluate | difficulty=easy | 10 problems
+2026-06-22 14:57:57 [INFO    ] gui.app_root: Navigated to screen: problem
+2026-06-22 14:58:11 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:58:11 [DEBUG   ] core.evaluator: Attempt 1 | correct=True | streak=1 | score=100%
+2026-06-22 14:58:11 [DEBUG   ] core.session_manager: Answer submitted | q=1 | correct=True | streak=1
+2026-06-22 14:58:28 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:58:28 [DEBUG   ] core.evaluator: Attempt 2 | correct=True | streak=2 | score=100%
+2026-06-22 14:58:28 [DEBUG   ] core.session_manager: Answer submitted | q=2 | correct=True | streak=2
+2026-06-22 14:58:38 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:58:38 [DEBUG   ] core.evaluator: Attempt 3 | correct=True | streak=3 | score=100%
+2026-06-22 14:58:38 [DEBUG   ] core.session_manager: Answer submitted | q=3 | correct=True | streak=3
+2026-06-22 14:58:52 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:58:52 [DEBUG   ] core.evaluator: Attempt 4 | correct=True | streak=4 | score=100%
+2026-06-22 14:58:52 [DEBUG   ] core.session_manager: Answer submitted | q=4 | correct=True | streak=4
+2026-06-22 14:58:59 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:58:59 [DEBUG   ] core.evaluator: Attempt 5 | correct=True | streak=5 | score=100%
+2026-06-22 14:58:59 [DEBUG   ] core.session_manager: Answer submitted | q=5 | correct=True | streak=5
+2026-06-22 14:59:05 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:59:05 [DEBUG   ] core.evaluator: Attempt 6 | correct=True | streak=6 | score=100%
+2026-06-22 14:59:05 [DEBUG   ] core.session_manager: Answer submitted | q=6 | correct=True | streak=6
+2026-06-22 14:59:16 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:59:16 [DEBUG   ] core.evaluator: Attempt 7 | correct=True | streak=7 | score=100%
+2026-06-22 14:59:16 [DEBUG   ] core.session_manager: Answer submitted | q=7 | correct=True | streak=7
+2026-06-22 14:59:24 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:59:24 [DEBUG   ] core.evaluator: Attempt 8 | correct=True | streak=8 | score=100%
+2026-06-22 14:59:24 [DEBUG   ] core.session_manager: Answer submitted | q=8 | correct=True | streak=8
+2026-06-22 14:59:30 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:59:30 [DEBUG   ] core.evaluator: Attempt 9 | correct=True | streak=9 | score=100%
+2026-06-22 14:59:30 [DEBUG   ] core.session_manager: Answer submitted | q=9 | correct=True | streak=9
+2026-06-22 14:59:39 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 14:59:39 [DEBUG   ] core.evaluator: Attempt 10 | correct=True | streak=10 | score=100%
+2026-06-22 14:59:39 [DEBUG   ] core.session_manager: Answer submitted | q=10 | correct=True | streak=10
+2026-06-22 14:59:42 [INFO    ] core.progress_tracker: Topic mastered: algebra / linear_equations  score=100%
+2026-06-22 14:59:42 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 14:59:42 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 14:59:42 [INFO    ] core.session_manager: Session finished | id=2a479f96 | algebra/linear_equations | score=100% | elapsed=104s
+2026-06-22 14:59:42 [INFO    ] gui.app_root: Navigated to screen: result
+2026-06-22 14:59:58 [INFO    ] gui.app_root: Navigated to screen: home
+2026-06-22 15:00:00 [INFO    ] gui.app_root: Navigated to screen: topic
+2026-06-22 15:00:04 [DEBUG   ] core.problem_engine: get_problem_set: 10 problems for algebra/linear_equations [medium]
+2026-06-22 15:00:04 [INFO    ] core.session_manager: Session started | id=125a6ec3 | algebra/linear_equations | phase=evaluate | difficulty=medium | 10 problems
+2026-06-22 15:00:04 [INFO    ] gui.app_root: Navigated to screen: problem
+2026-06-22 15:00:18 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/session_log.json
+2026-06-22 15:00:18 [DEBUG   ] core.evaluator: Attempt 1 | correct=False | streak=0 | score=0%
+2026-06-22 15:00:18 [DEBUG   ] core.session_manager: Answer submitted | q=1 | correct=False | streak=0
+2026-06-22 15:00:38 [INFO    ] gui.app_root: Window closing — saving progress
+2026-06-22 15:00:38 [DEBUG   ] utils.file_io: write_json: saved /Users/lason2057/PycharmProjects/Math_Tutor_App/data/progress.json
+2026-06-22 15:00:38 [DEBUG   ] core.progress_tracker: Progress saved.
+2026-06-22 15:00:38 [INFO    ] MathApp: App exited cleanly

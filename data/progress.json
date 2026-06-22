@@ -3,19 +3,19 @@
   "algebra": {
     "linear_equations": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 6,
+        "attempts": 12
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "inequalities": {

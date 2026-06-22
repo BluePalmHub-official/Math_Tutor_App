@@ -223,6 +223,29 @@ class SessionManager:
         return result
 
     # -----------------------------------------------------------------------
+    # Practice: advance to a fresh problem
+    # -----------------------------------------------------------------------
+
+    def next_practice_problem(self) -> dict:
+        """
+        Generate a new random problem for the next practice turn, store it
+        at the current index slot so submit_answer() will evaluate against
+        exactly this problem, and return it.
+
+        Must be called AFTER submit_answer() has advanced _current_index.
+        """
+        problem = get_problem(self._subject, self._topic, self._difficulty)
+        if self._current_index < len(self._problems):
+            self._problems[self._current_index] = problem
+        else:
+            # Buffer exhausted — extend the list to cover the current slot.
+            self._problems.extend(
+                [None] * (self._current_index - len(self._problems))
+            )
+            self._problems.append(problem)
+        return problem
+
+    # -----------------------------------------------------------------------
     # Hint / Show Solution flags  (set by GUI before submit_answer)
     # -----------------------------------------------------------------------
 
