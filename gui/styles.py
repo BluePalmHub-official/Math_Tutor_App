@@ -166,49 +166,21 @@ def input_style() -> dict:
 # Call with the parent widget and a variant name.
 # ---------------------------------------------------------------------------
 
+_BTN = {
+    "bg":              "#2980B9",
+    "fg":              "#FFFFFF",
+    "activebackground":"#2980B9",
+    "activeforeground":"#FFFFFF",
+}
+
 BUTTON_VARIANTS = {
-    "primary": {
-        "bg":              COLOURS["accent_blue"],
-        "fg":              COLOURS["text_white"],
-        "activebackground":"#2980B9",
-        "activeforeground":COLOURS["text_white"],
-    },
-    "success": {
-        "bg":              COLOURS["accent_green"],
-        "fg":              COLOURS["text_dark"],
-        "activebackground":"#27AE60",
-        "activeforeground":COLOURS["text_dark"],
-    },
-    "warning": {
-        "bg":              COLOURS["accent_orange"],
-        "fg":              COLOURS["text_white"],
-        "activebackground":"#D35400",
-        "activeforeground":COLOURS["text_white"],
-    },
-    "danger": {
-        "bg":              COLOURS["accent_red"],
-        "fg":              COLOURS["text_white"],
-        "activebackground":"#C0392B",
-        "activeforeground":COLOURS["text_white"],
-    },
-    "gold": {
-        "bg":              COLOURS["accent_gold"],
-        "fg":              COLOURS["text_dark"],
-        "activebackground":"#D4AC0D",
-        "activeforeground":COLOURS["text_dark"],
-    },
-    "ghost": {
-        "bg":              COLOURS["bg_card"],
-        "fg":              COLOURS["text_secondary"],
-        "activebackground":COLOURS["bg_highlight"],
-        "activeforeground":COLOURS["text_primary"],
-    },
-    "sidebar": {
-        "bg":              COLOURS["bg_sidebar"],
-        "fg":              COLOURS["text_primary"],
-        "activebackground":COLOURS["bg_card"],
-        "activeforeground":COLOURS["text_white"],
-    },
+    "primary": _BTN,
+    "success": _BTN,
+    "warning": _BTN,
+    "danger":  _BTN,
+    "gold":    _BTN,
+    "ghost":   _BTN,
+    "sidebar": _BTN,
 }
 
 
@@ -251,20 +223,6 @@ def make_button(
         kwargs["width"] = width
 
     btn = tk.Button(parent, **kwargs)
-
-    # Subtle hover effect
-    original_bg     = styles["bg"]
-    active_bg       = styles["activebackground"]
-
-    def on_enter(e):
-        btn.config(bg=active_bg)
-
-    def on_leave(e):
-        btn.config(bg=original_bg)
-
-    btn.bind("<Enter>", on_enter)
-    btn.bind("<Leave>", on_leave)
-
     return btn
 
 
