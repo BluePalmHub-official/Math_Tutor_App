@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(log show *)",
+      "Bash(timeout 8 python3 main.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 dev_tools.py unlock-advanced)"
+    ]
+  }
+}

@@ -106,6 +106,42 @@ try:
 except ImportError:
     _geo_coord = None
 
+# --- Advanced ---
+try:
+    from problems.advanced import linear_functions as _adv_linear
+except ImportError:
+    _adv_linear = None
+
+try:
+    from problems.advanced import systems_of_equations as _adv_systems
+except ImportError:
+    _adv_systems = None
+
+try:
+    from problems.advanced import similar_triangles as _adv_similar
+except ImportError:
+    _adv_similar = None
+
+try:
+    from problems.advanced import trigonometry as _adv_trig
+except ImportError:
+    _adv_trig = None
+
+try:
+    from problems.advanced import parabolas_graphs as _adv_parabolas
+except ImportError:
+    _adv_parabolas = None
+
+try:
+    from problems.advanced import circle_equations as _adv_circles
+except ImportError:
+    _adv_circles = None
+
+try:
+    from problems.advanced import solid_geometry as _adv_solid
+except ImportError:
+    _adv_solid = None
+
 
 # ---------------------------------------------------------------------------
 # Registry — maps (subject, topic) → imported module (or None for stubs)
@@ -125,6 +161,15 @@ _REGISTRY: dict[str, dict[str, object]] = {
         "polygons":            _geo_polygons,
         "circles":             _geo_circles,
         "coordinate_geometry": _geo_coord,
+    },
+    config.SUBJECT_ADVANCED: {
+        "linear_functions":    _adv_linear,
+        "systems_of_equations":_adv_systems,
+        "similar_triangles":   _adv_similar,
+        "trigonometry":        _adv_trig,
+        "parabolas_graphs":    _adv_parabolas,
+        "circle_equations":    _adv_circles,
+        "solid_geometry":      _adv_solid,
     },
 }
 

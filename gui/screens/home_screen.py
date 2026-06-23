@@ -112,7 +112,8 @@ class HomeScreen(tk.Frame):
 
         tk.Label(
             main,
-            text="Master Algebra first — Geometry unlocks when all Algebra topics are complete.",
+            text="Complete each module in order — Geometry unlocks after Algebra, "
+                 "Advanced unlocks after Geometry.",
             font=FONTS["small"],
             fg=COLOURS["text_secondary"],
             bg=COLOURS["bg_main"],
@@ -134,6 +135,16 @@ class HomeScreen(tk.Frame):
             cards_row, config.SUBJECT_GEOMETRY,
             "📏  Geometry", overall["geometry_mastered"],
             overall["geometry_total"], locked=overall["geometry_locked"],
+            lock_msg="Complete all Algebra topics to unlock",
+        )
+
+        tk.Frame(cards_row, bg=COLOURS["bg_main"], width=PAD["lg"]).pack(side="left")
+
+        self._module_card(
+            cards_row, config.SUBJECT_ADVANCED,
+            "🎓  Advanced", overall["advanced_mastered"],
+            overall["advanced_total"], locked=overall["advanced_locked"],
+            lock_msg="Complete all Geometry topics to unlock",
         )
 
         # Divider
@@ -147,7 +158,8 @@ class HomeScreen(tk.Frame):
     # -----------------------------------------------------------------------
 
     def _module_card(
-        self, parent, subject, title, mastered, total, locked
+        self, parent, subject, title, mastered, total, locked,
+        lock_msg="Complete prerequisites to unlock",
     ) -> None:
         card = tk.Frame(
             parent, bg=COLOURS["bg_card"],
@@ -167,7 +179,7 @@ class HomeScreen(tk.Frame):
         if locked:
             tk.Label(
                 card,
-                text="🔒  Complete all Algebra topics to unlock",
+                text=f"🔒  {lock_msg}",
                 font=FONTS["small"],
                 fg=COLOURS["text_muted"],
                 bg=COLOURS["bg_card"],
@@ -224,6 +236,7 @@ class HomeScreen(tk.Frame):
         stats = [
             ("Algebra Mastered",  f"{overall['algebra_mastered']} / {overall['algebra_total']}",  COLOURS["accent_blue"]),
             ("Geometry Mastered", f"{overall['geometry_mastered']} / {overall['geometry_total']}", COLOURS["accent_orange"]),
+            ("Advanced Mastered", f"{overall['advanced_mastered']} / {overall['advanced_total']}", COLOURS["accent_gold"]),
             ("Overall",           f"{overall['percent_overall']}%",                                COLOURS["accent_green"]),
         ]
 

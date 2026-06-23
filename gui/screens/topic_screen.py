@@ -69,7 +69,12 @@ class TopicScreen(tk.Frame):
             self.subject,
             self.subject.title()
         )
-        icon = "📐" if self.subject == config.SUBJECT_ALGEBRA else "📏"
+        _ICONS = {
+            config.SUBJECT_ALGEBRA:  "📐",
+            config.SUBJECT_GEOMETRY: "📏",
+            config.SUBJECT_ADVANCED: "🎓",
+        }
+        icon = _ICONS.get(self.subject, "📚")
 
         tk.Label(
             header,
@@ -151,8 +156,12 @@ class TopicScreen(tk.Frame):
         )
 
         # Topic cards
-        topics = config.ALGEBRA_TOPICS if self.subject == config.SUBJECT_ALGEBRA \
-                 else config.GEOMETRY_TOPICS
+        _TOPICS = {
+            config.SUBJECT_ALGEBRA:  config.ALGEBRA_TOPICS,
+            config.SUBJECT_GEOMETRY: config.GEOMETRY_TOPICS,
+            config.SUBJECT_ADVANCED: config.ADVANCED_TOPICS,
+        }
+        topics = _TOPICS.get(self.subject, config.ALGEBRA_TOPICS)
 
         for i, topic in enumerate(topics):
             summary = self.tracker.get_topic_summary(self.subject, topic)

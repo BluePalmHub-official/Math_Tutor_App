@@ -67,6 +67,16 @@ GEOMETRY_TOPICS = [
     "coordinate_geometry",
 ]
 
+ADVANCED_TOPICS = [
+    "linear_functions",
+    "systems_of_equations",
+    "similar_triangles",
+    "trigonometry",
+    "parabolas_graphs",
+    "circle_equations",
+    "solid_geometry",
+]
+
 # Human-readable labels for each topic key (used in the UI)
 TOPIC_LABELS = {
     # Algebra
@@ -81,15 +91,26 @@ TOPIC_LABELS = {
     "polygons":             "Polygons",
     "circles":              "Circles",
     "coordinate_geometry":  "Coordinate Geometry",
+    # Advanced
+    "linear_functions":    "Linear Functions",
+    "systems_of_equations":"Systems of Equations",
+    "similar_triangles":   "Similar Triangles",
+    "trigonometry":        "Trigonometry",
+    "parabolas_graphs":    "Parabolas & Graphs",
+    "circle_equations":    "Circle Equations",
+    "solid_geometry":      "Solid Geometry",
 }
 
 # Subject keys
 SUBJECT_ALGEBRA  = "algebra"
 SUBJECT_GEOMETRY = "geometry"
-SUBJECTS_IN_ORDER = [SUBJECT_ALGEBRA, SUBJECT_GEOMETRY]
+SUBJECT_ADVANCED = "advanced"
+SUBJECTS_IN_ORDER = [SUBJECT_ALGEBRA, SUBJECT_GEOMETRY, SUBJECT_ADVANCED]
 
 # Geometry is locked until all algebra topics are mastered
 GEOMETRY_REQUIRES_ALGEBRA_MASTERY = True
+# Advanced is locked until all geometry topics are mastered
+ADVANCED_REQUIRES_GEOMETRY_MASTERY = True
 
 # -----------------------------------------------------------------------------
 # Phase state constants

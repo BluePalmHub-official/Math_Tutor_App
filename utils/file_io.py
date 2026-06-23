@@ -182,6 +182,16 @@ DEFAULT_PROGRESS = {
         "circles":             _make_topic_default(locked=True),
         "coordinate_geometry": _make_topic_default(locked=True),
     },
+    "advanced": {
+        "status":              "locked",
+        "linear_functions":    _make_topic_default(locked=True),
+        "systems_of_equations":_make_topic_default(locked=True),
+        "similar_triangles":   _make_topic_default(locked=True),
+        "trigonometry":        _make_topic_default(locked=True),
+        "parabolas_graphs":    _make_topic_default(locked=True),
+        "circle_equations":    _make_topic_default(locked=True),
+        "solid_geometry":      _make_topic_default(locked=True),
+    },
 }
 
 

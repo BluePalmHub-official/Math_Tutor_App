@@ -121,6 +121,9 @@ class ProgressTracker:
     def is_geometry_unlocked(self) -> bool:
         return not self.is_subject_locked(config.SUBJECT_GEOMETRY)
 
+    def is_advanced_unlocked(self) -> bool:
+        return not self.is_subject_locked(config.SUBJECT_ADVANCED)
+
     # -----------------------------------------------------------------------
     # Phase completion — called by each screen when the student finishes
     # -----------------------------------------------------------------------
@@ -218,11 +221,16 @@ class ProgressTracker:
         if mastered and subject == config.SUBJECT_ALGEBRA:
             geometry_unlocked = self._check_unlock_geometry()
 
+        advanced_unlocked = False
+        if mastered and subject == config.SUBJECT_GEOMETRY:
+            advanced_unlocked = self._check_unlock_advanced()
+
         return {
-            "mastered":          mastered,
-            "best_score":        ev["best_score"],
-            "difficulty":        ev.get("difficulty", config.DIFFICULTY_EASY),
-            "geometry_unlocked": geometry_unlocked,
+            "mastered":           mastered,
+            "best_score":         ev["best_score"],
+            "difficulty":         ev.get("difficulty", config.DIFFICULTY_EASY),
+            "geometry_unlocked":  geometry_unlocked,
+            "advanced_unlocked":  advanced_unlocked,
         }
 
     # -----------------------------------------------------------------------
@@ -254,6 +262,37 @@ class ProgressTracker:
                         config.STATUS_NOT_STARTED
             self.save()
             logger.info("🔓 Geometry module unlocked!")
+            return True
+
+        return False
+
+    # Advanced unlock
+    # -----------------------------------------------------------------------
+
+    def _check_unlock_advanced(self) -> bool:
+        """
+        Unlock Advanced module if every geometry topic is mastered.
+        Returns True if Advanced was just unlocked (was previously locked).
+        """
+        if not config.ADVANCED_REQUIRES_GEOMETRY_MASTERY:
+            return False
+
+        if self.is_advanced_unlocked():
+            return False    # already unlocked
+
+        all_geometry_mastered = all(
+            self.is_topic_mastered(config.SUBJECT_GEOMETRY, t)
+            for t in config.GEOMETRY_TOPICS
+        )
+
+        if all_geometry_mastered:
+            self._data[config.SUBJECT_ADVANCED]["status"] = config.STATUS_NOT_STARTED
+            for topic in config.ADVANCED_TOPICS:
+                for phase in config.PHASES_IN_ORDER:
+                    self._data[config.SUBJECT_ADVANCED][topic][phase]["status"] = \
+                        config.STATUS_NOT_STARTED
+            self.save()
+            logger.info("🔓 Advanced module unlocked!")
             return True
 
         return False
@@ -294,11 +333,14 @@ class ProgressTracker:
         Return counts for the progress dashboard screen.
 
         {
-          "algebra_mastered":  int,   topics mastered out of 5
+          "algebra_mastered":  int,
           "algebra_total":     int,
           "geometry_mastered": int,
           "geometry_total":    int,
           "geometry_locked":   bool,
+          "advanced_mastered": int,
+          "advanced_total":    int,
+          "advanced_locked":   bool,
           "percent_overall":   int,   0-100
         }
         """
@@ -310,8 +352,13 @@ class ProgressTracker:
             1 for t in config.GEOMETRY_TOPICS
             if self.is_topic_mastered(config.SUBJECT_GEOMETRY, t)
         )
-        total = len(config.ALGEBRA_TOPICS) + len(config.GEOMETRY_TOPICS)
-        overall_mastered = alg_mastered + geo_mastered
+        adv_mastered = sum(
+            1 for t in config.ADVANCED_TOPICS
+            if self.is_topic_mastered(config.SUBJECT_ADVANCED, t)
+        )
+        total = (len(config.ALGEBRA_TOPICS) + len(config.GEOMETRY_TOPICS)
+                 + len(config.ADVANCED_TOPICS))
+        overall_mastered = alg_mastered + geo_mastered + adv_mastered
         percent = int((overall_mastered / total) * 100) if total else 0
 
         return {
@@ -320,6 +367,9 @@ class ProgressTracker:
             "geometry_mastered": geo_mastered,
             "geometry_total":    len(config.GEOMETRY_TOPICS),
             "geometry_locked":   self.is_subject_locked(config.SUBJECT_GEOMETRY),
+            "advanced_mastered": adv_mastered,
+            "advanced_total":    len(config.ADVANCED_TOPICS),
+            "advanced_locked":   self.is_subject_locked(config.SUBJECT_ADVANCED),
             "percent_overall":   percent,
         }
 

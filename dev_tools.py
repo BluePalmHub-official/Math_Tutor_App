@@ -5,6 +5,8 @@ dev_tools.py — development helpers for Math Foundation Builder.
 Commands:
     python3 dev_tools.py unlock-geometry   Marks all algebra topics as mastered
                                            and unlocks the geometry module.
+    python3 dev_tools.py unlock-advanced   Marks all algebra + geometry topics
+                                           as mastered and unlocks Advanced.
     python3 dev_tools.py reset             Wipes progress.json back to defaults
                                            for a clean start.
 """
@@ -141,6 +143,66 @@ def unlock_geometry() -> None:
     print("=" * 56)
 
 
+def unlock_advanced() -> None:
+    """
+    Mark every algebra and geometry topic as mastered and unlock the Advanced module.
+    Student name is preserved.
+    """
+    data    = _load()
+    student = data.get("student_name", "")
+    changes = []
+
+    # ── Algebra ────────────────────────────────────────────────────────────────
+    for topic in config.ALGEBRA_TOPICS:
+        old = (data.get(config.SUBJECT_ALGEBRA, {}).get(topic, {})
+               .get(config.PHASE_EVALUATE, {}).get("status", "unknown"))
+        data.setdefault(config.SUBJECT_ALGEBRA, {})[topic] = _mastered_topic()
+        if old != config.STATUS_MASTERED:
+            changes.append(f"  algebra  /  {config.TOPIC_LABELS.get(topic, topic)}")
+
+    # ── Geometry ───────────────────────────────────────────────────────────────
+    geo = data.setdefault(config.SUBJECT_GEOMETRY, {})
+    geo["status"] = config.STATUS_NOT_STARTED
+    for topic in config.GEOMETRY_TOPICS:
+        old = geo.get(topic, {}).get(config.PHASE_EVALUATE, {}).get("status", "unknown")
+        geo[topic] = _mastered_topic()
+        if old != config.STATUS_MASTERED:
+            changes.append(f"  geometry / {config.TOPIC_LABELS.get(topic, topic)}")
+
+    # ── Advanced: unlock subject and reset all topics ──────────────────────────
+    adv_was_locked = (
+        data.get(config.SUBJECT_ADVANCED, {}).get("status") == config.STATUS_LOCKED
+    )
+    adv = data.setdefault(config.SUBJECT_ADVANCED, {})
+    adv["status"] = config.STATUS_NOT_STARTED
+    for topic in config.ADVANCED_TOPICS:
+        adv[topic] = _unlocked_geo_topic()
+    if adv_was_locked:
+        changes.append("  advanced module  →  unlocked")
+
+    _save(data)
+
+    print("=" * 56)
+    print("  dev_tools  —  unlock-advanced")
+    print("=" * 56)
+    print(f"  Student : {student or '(not set)'}")
+    print(f"  File    : {get_progress_path()}")
+    print()
+    if changes:
+        print("  Topics set to mastered / unlocked:")
+        for line in changes:
+            print(f"    {line.strip()}")
+    else:
+        print("  No changes needed (already fully mastered).")
+    print()
+    print("  Advanced topics set to  not_started :")
+    for topic in config.ADVANCED_TOPICS:
+        print(f"    advanced  /  {config.TOPIC_LABELS.get(topic, topic)}")
+    print()
+    print("  Run  python3 main.py  to launch with Advanced unlocked.")
+    print("=" * 56)
+
+
 def reset_progress() -> None:
     """
     Wipe progress.json back to factory defaults.
@@ -166,6 +228,7 @@ def reset_progress() -> None:
 
 _COMMANDS = {
     "unlock-geometry": unlock_geometry,
+    "unlock-advanced": unlock_advanced,
     "reset":           reset_progress,
 }
 
@@ -177,9 +240,13 @@ Usage:
         Marks all algebra topics as mastered and unlocks the
         geometry module. Student name is preserved.
 
+    python3 dev_tools.py unlock-advanced
+        Marks all algebra and geometry topics as mastered and
+        unlocks the Advanced module. Student name is preserved.
+
     python3 dev_tools.py reset
         Wipes progress.json back to factory defaults
-        (all topics not_started, geometry locked).
+        (all topics not_started, geometry + advanced locked).
 """
 
 

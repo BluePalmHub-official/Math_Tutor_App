@@ -94,72 +94,194 @@
         "status": "complete"
       },
       "practice": {
-        "status": "in_progress",
-        "best_streak": 0,
-        "attempts": 1
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "triangles": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "polygons": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "circles": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "coordinate_geometry": {
       "learn": {
         "status": "complete"
+      },
+      "practice": {
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
+      },
+      "evaluate": {
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
+      }
+    }
+  },
+  "advanced": {
+    "status": "not_started",
+    "linear_functions": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "systems_of_equations": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "similar_triangles": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "trigonometry": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "parabolas_graphs": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "circle_equations": {
+      "learn": {
+        "status": "not_started"
+      },
+      "practice": {
+        "status": "not_started",
+        "best_streak": 0,
+        "attempts": 0
+      },
+      "evaluate": {
+        "status": "not_started",
+        "attempts": 0,
+        "best_score": 0,
+        "mastered": false,
+        "difficulty": "easy"
+      }
+    },
+    "solid_geometry": {
+      "learn": {
+        "status": "not_started"
       },
       "practice": {
         "status": "not_started",
