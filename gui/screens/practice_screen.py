@@ -13,6 +13,7 @@
 # =============================================================================
 
 import tkinter as tk
+import importlib
 import logging
 
 import config
@@ -41,6 +42,10 @@ class PracticeScreen(tk.Frame):
         self._used_show_sol     = False
         self._hint_level        = 0       # 0 = none shown, 1/2/3 = hint level
         self._current_problem   = None
+
+        # Review Lesson popup state
+        self._review_win     = None
+        self._review_content = None
 
         # Start session
         self.sm.start_session(subject, topic, config.PHASE_PRACTICE)
@@ -144,6 +149,32 @@ class PracticeScreen(tk.Frame):
             padx=PAD["lg"], pady=PAD["lg"],
         )
         self._q_label.pack(anchor="w")
+
+        # ── Review Lesson trigger ───────────────────────────────────────────
+        tk.Label(
+            body,
+            text="Stuck? Review the lesson without losing your progress.",
+            font=FONTS["small"],
+            fg=COLOURS["text_muted"],
+            bg=COLOURS["bg_main"],
+        ).pack(anchor="w", pady=(0, 2))
+
+        self._review_btn = tk.Button(
+            body,
+            text="📖 Review Lesson",
+            command=self._show_review_panel,
+            font=FONTS["small_bold"],
+            fg=COLOURS["accent_blue"],
+            bg=COLOURS["bg_card"],
+            activebackground=COLOURS["bg_highlight"],
+            activeforeground=COLOURS["accent_blue"],
+            relief="flat", bd=0,
+            highlightthickness=1,
+            highlightbackground=COLOURS["accent_blue"],
+            padx=12, pady=6,
+            cursor="hand2",
+        )
+        self._review_btn.pack(anchor="w", pady=(0, PAD["md"]))
 
         # ── Hint panel ──────────────────────────────────────────────────────
         self._hint_frame = tk.Frame(body, bg=COLOURS["bg_main"])
@@ -313,7 +344,7 @@ class PracticeScreen(tk.Frame):
 
         # Reset hint buttons
         for btn in (self._hint1_btn, self._hint2_btn,
-                    self._hint3_btn, self._show_sol_btn):
+                    self._hint3_btn, self._show_sol_btn, self._review_btn):
             btn.config(state="normal")
 
     # -----------------------------------------------------------------------
@@ -365,7 +396,7 @@ class PracticeScreen(tk.Frame):
         self._answer_entry.config(state="disabled")
         self._submit_btn.config(state="disabled")
         for btn in (self._hint1_btn, self._hint2_btn,
-                    self._hint3_btn, self._show_sol_btn):
+                    self._hint3_btn, self._show_sol_btn, self._review_btn):
             btn.config(state="disabled")
 
         self._next_q_btn.config(state="normal")
@@ -421,7 +452,7 @@ class PracticeScreen(tk.Frame):
         )
         self._submit_btn.config(state="disabled")
         for btn in (self._hint1_btn, self._hint2_btn,
-                    self._hint3_btn, self._show_sol_btn):
+                    self._hint3_btn, self._show_sol_btn, self._review_btn):
             btn.config(state="disabled")
 
         self._update_streak(streak)
@@ -490,3 +521,375 @@ class PracticeScreen(tk.Frame):
             bg=COLOURS["accent_gold"],
             fg=COLOURS["text_dark"],
         )
+
+    # -----------------------------------------------------------------------
+    # Review Lesson popup
+    #
+    # A read-only reference popup (tk.Toplevel) — never navigates away from
+    # this screen and never touches session_manager / tracker state, so the
+    # practice session (streak, current problem, answer entry) is completely
+    # unaffected by opening or closing it.
+    # -----------------------------------------------------------------------
+
+    def _show_review_panel(self) -> None:
+        """Open the lesson review popup for the current subject/topic."""
+        if self._review_win is not None and self._review_win.winfo_exists():
+            self._review_win.lift()
+            self._review_win.focus_force()
+            return
+
+        try:
+            self._review_content = importlib.import_module(
+                f"content.{self.subject}.{self.topic}"
+            )
+        except ImportError:
+            self._review_content = None
+
+        self._review_card_idx    = 0
+        self._review_example_idx = 0
+
+        topic_label = config.TOPIC_LABELS.get(self.topic, self.topic)
+
+        win = tk.Toplevel(self)
+        win.title(f"Lesson Review — {topic_label}")
+        win.configure(bg=COLOURS["bg_card"])
+        win.geometry("600x700")
+        win.transient(self.winfo_toplevel())
+        win.protocol("WM_DELETE_WINDOW", self._close_review_panel)
+        self._review_win = win
+
+        # Dim the practice screen underneath to signal the panel is active.
+        self.configure(bg="#111820")
+
+        # ── Tab bar ──────────────────────────────────────────────────────────
+        tab_bar = tk.Frame(win, bg=COLOURS["bg_header"])
+        tab_bar.pack(fill="x")
+
+        self._review_tab_buttons = {}
+        for key, label in (
+            ("concepts", "Concept Cards"),
+            ("examples", "Worked Examples"),
+            ("vocab",    "Key Vocabulary"),
+        ):
+            btn = tk.Button(
+                tab_bar,
+                text=label,
+                command=lambda k=key: self._set_review_tab(k),
+                font=FONTS["small_bold"],
+                fg=COLOURS["text_primary"],
+                bg=COLOURS["bg_header"],
+                activebackground=COLOURS["bg_card"],
+                activeforeground=COLOURS["accent_blue"],
+                relief="flat", bd=0,
+                padx=PAD["md"], pady=10,
+                cursor="hand2",
+            )
+            btn.pack(side="left", fill="x", expand=True)
+            self._review_tab_buttons[key] = btn
+
+        # ── Content area (rebuilt per tab) ──────────────────────────────────
+        self._review_content_frame = tk.Frame(win, bg=COLOURS["bg_card"])
+        self._review_content_frame.pack(fill="both", expand=True)
+
+        # ── Close button ─────────────────────────────────────────────────────
+        make_button(
+            win, "Close Review", self._close_review_panel,
+            variant="primary", pady=10, padx=20,
+        ).pack(side="bottom", pady=PAD["md"])
+
+        self._set_review_tab("concepts")
+
+        win.focus_force()
+        # Delay the click-away binding slightly so the initial focus-in from
+        # creating the window doesn't immediately trigger a close.
+        win.after(300, lambda: win.bind("<FocusOut>", self._on_review_focus_out))
+
+    def _on_review_focus_out(self, event) -> None:
+        """Close the popup when focus moves entirely away from it (click away)."""
+        win = self._review_win
+        if win is not None and win.winfo_exists() and win.focus_get() is None:
+            self._close_review_panel()
+
+    def _close_review_panel(self) -> None:
+        """Destroy the popup only — the practice screen is left untouched."""
+        win = self._review_win
+        if win is not None and win.winfo_exists():
+            win.destroy()
+        self._review_win = None
+
+        self.configure(bg=COLOURS["bg_main"])
+        if not self._answered:
+            self._review_btn.config(state="normal")
+
+    def _set_review_tab(self, tab: str) -> None:
+        for key, btn in self._review_tab_buttons.items():
+            active = key == tab
+            btn.config(
+                bg=COLOURS["bg_card"] if active else COLOURS["bg_header"],
+                fg=COLOURS["accent_blue"] if active else COLOURS["text_primary"],
+            )
+
+        for w in self._review_content_frame.winfo_children():
+            w.destroy()
+
+        if tab == "concepts":
+            self._render_review_concepts()
+        elif tab == "examples":
+            self._render_review_examples()
+        else:
+            self._render_review_vocab()
+
+    def _review_scrollable_panel(self, parent: tk.Widget) -> tk.Widget:
+        """Build a scrollable canvas+frame inside `parent`, return the inner content frame."""
+        canvas = tk.Canvas(parent, bg=COLOURS["bg_card"], highlightthickness=0)
+        sb = tk.Scrollbar(parent, orient="vertical", command=canvas.yview)
+        canvas.configure(yscrollcommand=sb.set)
+        sb.pack(side="right", fill="y")
+        canvas.pack(side="left", fill="both", expand=True)
+
+        inner = tk.Frame(canvas, bg=COLOURS["bg_card"])
+        win = canvas.create_window((0, 0), window=inner, anchor="nw")
+
+        def _resize(e):
+            canvas.itemconfig(win, width=e.width)
+        canvas.bind("<Configure>", _resize)
+
+        def _scroll(e):
+            canvas.configure(scrollregion=canvas.bbox("all"))
+        inner.bind("<Configure>", _scroll)
+
+        def _wheel(e):
+            canvas.yview_scroll(int(-1 * (e.delta / 120)), "units")
+        canvas.bind("<MouseWheel>", _wheel)
+
+        content = tk.Frame(inner, bg=COLOURS["bg_card"])
+        content.pack(fill="both", expand=True, padx=PAD["lg"], pady=PAD["md"])
+        return content
+
+    # -- Tab 1: Concept Cards -------------------------------------------------
+
+    def _render_review_concepts(self) -> None:
+        cards = getattr(self._review_content, "CONCEPT_CARDS", []) if self._review_content else []
+        content = self._review_scrollable_panel(self._review_content_frame)
+
+        if not cards:
+            tk.Label(
+                content, text="No concept cards available for this topic.",
+                font=FONTS["body"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+            ).pack(pady=PAD["lg"])
+            return
+
+        self._review_card_idx = max(0, min(self._review_card_idx, len(cards) - 1))
+        idx   = self._review_card_idx
+        card  = cards[idx]
+        total = len(cards)
+
+        tk.Label(
+            content, text=f"Card {idx + 1} of {total}",
+            font=FONTS["small_bold"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        card_frame = tk.Frame(
+            content, bg=COLOURS["bg_highlight"],
+            highlightthickness=1, highlightbackground=COLOURS["accent_blue"],
+        )
+        card_frame.pack(fill="x", pady=(0, PAD["md"]))
+
+        tk.Label(
+            card_frame, text=card.get("title", ""),
+            font=FONTS["subheading"], fg=COLOURS["accent_blue"], bg=COLOURS["bg_highlight"],
+            padx=PAD["md"], pady=PAD["sm"],
+        ).pack(anchor="w")
+
+        tk.Label(
+            card_frame, text=card.get("body", ""),
+            font=FONTS["body"], fg=COLOURS["text_primary"], bg=COLOURS["bg_highlight"],
+            wraplength=500, justify="left", padx=PAD["md"], pady=PAD["md"],
+        ).pack(anchor="w")
+
+        formula = card.get("formula")
+        if formula:
+            fbox = tk.Frame(
+                card_frame, bg=COLOURS["bg_main"],
+                highlightthickness=1, highlightbackground=COLOURS["accent_gold"],
+            )
+            fbox.pack(fill="x", padx=PAD["md"], pady=(0, PAD["sm"]))
+            tk.Label(
+                fbox, text=formula,
+                font=FONTS["mono_large"], fg=COLOURS["accent_gold"], bg=COLOURS["bg_main"],
+                padx=PAD["md"], pady=PAD["sm"],
+            ).pack()
+
+        example = card.get("example")
+        if example:
+            tk.Label(
+                card_frame, text=example,
+                font=FONTS["mono_small"], fg=COLOURS["text_secondary"], bg=COLOURS["bg_highlight"],
+                justify="left", padx=PAD["md"], pady=PAD["md"],
+            ).pack(anchor="w")
+
+        nav_row = tk.Frame(content, bg=COLOURS["bg_card"])
+        nav_row.pack(fill="x", pady=(PAD["sm"], 0))
+
+        prev_btn = make_button(
+            nav_row, "← Previous", lambda: self._review_card_nav(-1),
+            variant="ghost", pady=6, padx=12, size="small_bold",
+        )
+        prev_btn.pack(side="left")
+        if idx == 0:
+            prev_btn.config(state="disabled")
+
+        next_btn = make_button(
+            nav_row, "Next →", lambda: self._review_card_nav(1),
+            variant="ghost", pady=6, padx=12, size="small_bold",
+        )
+        next_btn.pack(side="right")
+        if idx == total - 1:
+            next_btn.config(state="disabled")
+
+    def _review_card_nav(self, delta: int) -> None:
+        cards = getattr(self._review_content, "CONCEPT_CARDS", []) if self._review_content else []
+        if not cards:
+            return
+        self._review_card_idx = max(0, min(self._review_card_idx + delta, len(cards) - 1))
+        for w in self._review_content_frame.winfo_children():
+            w.destroy()
+        self._render_review_concepts()
+
+    # -- Tab 2: Worked Examples ------------------------------------------------
+
+    def _render_review_examples(self) -> None:
+        examples = getattr(self._review_content, "WORKED_EXAMPLES", []) if self._review_content else []
+        content = self._review_scrollable_panel(self._review_content_frame)
+
+        if not examples:
+            tk.Label(
+                content, text="No worked examples available for this topic.",
+                font=FONTS["body"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+            ).pack(pady=PAD["lg"])
+            return
+
+        self._review_example_idx = max(0, min(self._review_example_idx, len(examples) - 1))
+        idx     = self._review_example_idx
+        example = examples[idx]
+        total   = len(examples)
+        steps   = example.get("steps", [])
+
+        tk.Label(
+            content, text=f"Example {idx + 1} of {total}",
+            font=FONTS["small_bold"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        prob_frame = tk.Frame(
+            content, bg=COLOURS["bg_highlight"],
+            highlightthickness=2, highlightbackground=COLOURS["accent_orange"],
+        )
+        prob_frame.pack(fill="x", pady=(0, PAD["md"]))
+        tk.Label(
+            prob_frame, text="Problem",
+            font=FONTS["small_bold"], fg=COLOURS["accent_orange"], bg=COLOURS["bg_highlight"],
+            padx=PAD["md"], pady=PAD["sm"],
+        ).pack(anchor="w")
+        tk.Label(
+            prob_frame, text=example.get("problem", ""),
+            font=FONTS["mono_large"], fg=COLOURS["text_primary"], bg=COLOURS["bg_highlight"],
+            padx=PAD["md"], pady=PAD["md"],
+        ).pack(anchor="w")
+
+        # All steps shown at once — this is review, not first-time reveal mode.
+        for i, (desc, working) in enumerate(steps):
+            step_frame = tk.Frame(
+                content, bg=COLOURS["bg_highlight"],
+                highlightthickness=1, highlightbackground=COLOURS["border"],
+            )
+            step_frame.pack(fill="x", pady=(0, PAD["sm"]))
+
+            tk.Label(
+                step_frame, text=f"Step {i + 1}  —  {desc}",
+                font=FONTS["small_bold"], fg=COLOURS["text_secondary"], bg=COLOURS["bg_highlight"],
+                padx=PAD["sm"], pady=4,
+            ).pack(anchor="w")
+            tk.Label(
+                step_frame, text=working,
+                font=FONTS["mono_large"], fg=COLOURS["accent_gold"], bg=COLOURS["bg_highlight"],
+                padx=PAD["md"], pady=PAD["sm"],
+            ).pack(anchor="w")
+
+        check_frame = tk.Frame(
+            content, bg=COLOURS["bg_correct"],
+            highlightthickness=1, highlightbackground=COLOURS["accent_green"],
+        )
+        check_frame.pack(fill="x", pady=(0, PAD["md"]))
+        tk.Label(
+            check_frame, text=example.get("check", ""),
+            font=FONTS["mono"], fg=COLOURS["accent_green"], bg=COLOURS["bg_correct"],
+            padx=PAD["md"], pady=PAD["sm"],
+        ).pack(anchor="w")
+
+        notes = example.get("notes")
+        if notes:
+            tk.Label(
+                content, text=f"💡  {notes}",
+                font=FONTS["small"], fg=COLOURS["text_secondary"], bg=COLOURS["bg_card"],
+                wraplength=500, justify="left",
+            ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        nav_row = tk.Frame(content, bg=COLOURS["bg_card"])
+        nav_row.pack(fill="x", pady=(PAD["sm"], 0))
+
+        prev_btn = make_button(
+            nav_row, "← Previous", lambda: self._review_example_nav(-1),
+            variant="ghost", pady=6, padx=12, size="small_bold",
+        )
+        prev_btn.pack(side="left")
+        if idx == 0:
+            prev_btn.config(state="disabled")
+
+        next_btn = make_button(
+            nav_row, "Next →", lambda: self._review_example_nav(1),
+            variant="ghost", pady=6, padx=12, size="small_bold",
+        )
+        next_btn.pack(side="right")
+        if idx == total - 1:
+            next_btn.config(state="disabled")
+
+    def _review_example_nav(self, delta: int) -> None:
+        examples = getattr(self._review_content, "WORKED_EXAMPLES", []) if self._review_content else []
+        if not examples:
+            return
+        self._review_example_idx = max(0, min(self._review_example_idx + delta, len(examples) - 1))
+        for w in self._review_content_frame.winfo_children():
+            w.destroy()
+        self._render_review_examples()
+
+    # -- Tab 3: Key Vocabulary --------------------------------------------------
+
+    def _render_review_vocab(self) -> None:
+        vocab = getattr(self._review_content, "KEY_VOCABULARY", {}) if self._review_content else {}
+        content = self._review_scrollable_panel(self._review_content_frame)
+
+        if not vocab:
+            tk.Label(
+                content, text="No vocabulary for this topic.",
+                font=FONTS["body"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+            ).pack(pady=PAD["lg"])
+            return
+
+        for term, definition in vocab.items():
+            row = tk.Frame(
+                content, bg=COLOURS["bg_highlight"],
+                highlightthickness=1, highlightbackground=COLOURS["border"],
+            )
+            row.pack(fill="x", pady=(0, PAD["sm"]))
+
+            tk.Label(
+                row, text=term,
+                font=FONTS["body_bold"], fg=COLOURS["accent_gold"], bg=COLOURS["bg_highlight"],
+                padx=PAD["md"], pady=PAD["sm"], anchor="w",
+            ).pack(anchor="w")
+
+            tk.Label(
+                row, text=definition,
+                font=FONTS["body"], fg=COLOURS["text_white"], bg=COLOURS["bg_highlight"],
+                padx=PAD["md"], pady=PAD["sm"], wraplength=500, justify="left",
+            ).pack(anchor="w")

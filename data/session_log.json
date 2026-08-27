@@ -373,5 +373,20 @@
     "used_hint": true,
     "used_show_solution": false,
     "feedback": "Almost there — take another look at the steps."
+  },
+  {
+    "session_id": "9fcf5796",
+    "subject": "algebra",
+    "topic": "linear_equations",
+    "phase": "practice",
+    "timestamp": "2026-08-26T20:24:39",
+    "q_number": 1,
+    "question": "Solve:   4(x + 1) = 44",
+    "student_input": "10",
+    "expected_answer": "10",
+    "correct": true,
+    "used_hint": false,
+    "used_show_solution": false,
+    "feedback": "Nailed it! On to the next one."
   }
 ]

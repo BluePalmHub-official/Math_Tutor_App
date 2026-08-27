@@ -3,19 +3,20 @@
   "algebra": {
     "linear_equations": {
       "learn": {
-        "status": "complete"
+        "status": "not_started"
       },
       "practice": {
-        "status": "complete",
-        "best_streak": 3,
+        "status": "not_started",
+        "best_streak": 0,
         "attempts": 3
       },
       "evaluate": {
-        "status": "mastered",
+        "status": "not_started",
         "attempts": 1,
         "best_score": 100,
         "mastered": true,
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "replay_difficulty": "medium"
       }
     },
     "inequalities": {
@@ -179,122 +180,1935 @@
     "status": "not_started",
     "linear_functions": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
         "status": "not_started",
         "best_streak": 0,
-        "attempts": 0
+        "attempts": 3
       },
       "evaluate": {
         "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium",
+        "replay_difficulty": "medium"
       }
     },
     "systems_of_equations": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "similar_triangles": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "trigonometry": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "parabolas_graphs": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "circle_equations": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     },
     "solid_geometry": {
       "learn": {
-        "status": "not_started"
+        "status": "complete"
       },
       "practice": {
-        "status": "not_started",
-        "best_streak": 0,
-        "attempts": 0
+        "status": "complete",
+        "best_streak": 3,
+        "attempts": 3
       },
       "evaluate": {
-        "status": "not_started",
-        "attempts": 0,
-        "best_score": 0,
-        "mastered": false,
-        "difficulty": "easy"
+        "status": "mastered",
+        "attempts": 1,
+        "best_score": 100,
+        "mastered": true,
+        "difficulty": "medium"
       }
     }
+  },
+  "cat_history": {
+    "pretest": [
+      {
+        "date": "2026-08-16T20:03:52",
+        "mode": "pretest",
+        "score_percent": 40,
+        "pass_fail": "fail",
+        "total_answered": 20,
+        "hard_streak_peak": 3,
+        "elapsed_seconds": 650,
+        "weak_topics": [
+          "Quadratics",
+          "Word Problems"
+        ],
+        "strong_topics": [
+          "Linear Equations"
+        ],
+        "topic_breakdown": {
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 4,
+            "correct": 1,
+            "percent": 25,
+            "strength": "weak"
+          },
+          "algebra/word_problems": {
+            "subject": "algebra",
+            "topic": "word_problems",
+            "label": "Word Problems",
+            "attempted": 4,
+            "correct": 1,
+            "percent": 25,
+            "strength": "weak"
+          },
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          }
+        }
+      },
+      {
+        "date": "2026-08-21T20:03:52",
+        "mode": "pretest",
+        "score_percent": 60,
+        "pass_fail": "borderline",
+        "total_answered": 20,
+        "hard_streak_peak": 3,
+        "elapsed_seconds": 625,
+        "weak_topics": [
+          "Quadratics"
+        ],
+        "strong_topics": [
+          "Linear Equations",
+          "Inequalities"
+        ],
+        "topic_breakdown": {
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 4,
+            "correct": 1,
+            "percent": 25,
+            "strength": "weak"
+          },
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          },
+          "algebra/inequalities": {
+            "subject": "algebra",
+            "topic": "inequalities",
+            "label": "Inequalities",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          }
+        }
+      },
+      {
+        "date": "2026-08-25T20:03:52",
+        "mode": "pretest",
+        "score_percent": 82,
+        "pass_fail": "pass",
+        "total_answered": 20,
+        "hard_streak_peak": 3,
+        "elapsed_seconds": 605,
+        "weak_topics": [],
+        "strong_topics": [
+          "Linear Equations",
+          "Inequalities",
+          "Quadratics"
+        ],
+        "topic_breakdown": {
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          },
+          "algebra/inequalities": {
+            "subject": "algebra",
+            "topic": "inequalities",
+            "label": "Inequalities",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          },
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          }
+        }
+      },
+      {
+        "mode": "pretest",
+        "total_answered": 20,
+        "total_correct": 20,
+        "score_percent": 100,
+        "pass_fail": "pass",
+        "result_message": "Strong foundation — you are well prepared to begin.",
+        "hard_streak_peak": 19,
+        "difficulty_journey": [
+          "medium",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard"
+        ],
+        "topic_breakdown": {
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/triangles": {
+            "subject": "geometry",
+            "topic": "triangles",
+            "label": "Triangles",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/word_problems": {
+            "subject": "algebra",
+            "topic": "word_problems",
+            "label": "Word Problems",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/linear_functions": {
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "label": "Linear Functions",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/circle_equations": {
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "label": "Circle Equations",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/polygons": {
+            "subject": "geometry",
+            "topic": "polygons",
+            "label": "Polygons",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/coordinate_geometry": {
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "label": "Coordinate Geometry",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/systems_of_equations": {
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "label": "Systems of Equations",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/circles": {
+            "subject": "geometry",
+            "topic": "circles",
+            "label": "Circles",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/angles_lines": {
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "label": "Angles & Lines",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/inequalities": {
+            "subject": "algebra",
+            "topic": "inequalities",
+            "label": "Inequalities",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/trigonometry": {
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "label": "Trigonometry",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/similar_triangles": {
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "label": "Similar Triangles",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/exponents_radicals": {
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "label": "Exponents & Radicals",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          }
+        },
+        "strong_topics": [
+          "Linear Equations",
+          "Triangles",
+          "Word Problems",
+          "Linear Functions",
+          "Quadratics",
+          "Circle Equations",
+          "Polygons",
+          "Coordinate Geometry",
+          "Systems of Equations",
+          "Circles",
+          "Angles & Lines",
+          "Inequalities",
+          "Trigonometry",
+          "Similar Triangles",
+          "Exponents & Radicals"
+        ],
+        "adequate_topics": [],
+        "weak_topics": [],
+        "weak_topic_pairs": [],
+        "answer_log": [
+          {
+            "q_number": 1,
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "question": "Solve:   5x + 10 = 2x + 28",
+            "student_input": "6",
+            "expected_answer": "6",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 2,
+            "subject": "geometry",
+            "topic": "triangles",
+            "question": "A right triangle has hypotenuse 30 cm and one leg 18 cm. Find the other leg in cm.",
+            "student_input": "24",
+            "expected_answer": "24",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 3,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A car travels at 60 km/h for 5 hours. How many kilometres does it travel?",
+            "student_input": "300",
+            "expected_answer": "300",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 4,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "Find the slope of the line  5x + 6y = 7.",
+            "student_input": "-0.8333",
+            "expected_answer": "-0.8333",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 5,
+            "subject": "algebra",
+            "topic": "quadratics",
+            "question": "Solve by completing the square:   x² + 4x + 3 = 0",
+            "student_input": "-3",
+            "expected_answer": "-3",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 6,
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "question": "Find the circumference of the circle (use π = 3.14, round to 2 dp):\n   (x − 3)² + (y + 2)² = 64",
+            "student_input": "50.27",
+            "expected_answer": "50.27",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 7,
+            "subject": "geometry",
+            "topic": "polygons",
+            "question": "A regular polygon has each exterior angle equal to 40°. How many sides does it have?",
+            "student_input": "9",
+            "expected_answer": "9",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 8,
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "question": "Find the circumference of the circle (use π = 3.14, round to 2 dp):\n   (x + 5)² + (y − 2)² = 4",
+            "student_input": "12.57",
+            "expected_answer": "12.57",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 9,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "The midpoint of segment AB is M(1, 2). If A is (-5, 5), find the x-coordinate of B.",
+            "student_input": "7",
+            "expected_answer": "7",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 10,
+            "subject": "algebra",
+            "topic": "quadratics",
+            "question": "Solve by completing the square:   x² − 2x − 24 = 0",
+            "student_input": "-4",
+            "expected_answer": "-4",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 11,
+            "subject": "geometry",
+            "topic": "triangles",
+            "question": "A right triangle has hypotenuse 10 cm and one leg 6 cm. Find the other leg in cm.",
+            "student_input": "8",
+            "expected_answer": "8",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 12,
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "question": "Pens cost $3 each and markers cost $2 each. A total of 10 items were bought for $27. How many pens were purchased?",
+            "student_input": "7",
+            "expected_answer": "7",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 13,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "A circle has circumference 75.36 cm. Find its radius. Use π = 3.14.",
+            "student_input": "12",
+            "expected_answer": "12",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 14,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. The co-interior angles are (3x + 23)° and (3x + 13)°. Find x.",
+            "student_input": "24",
+            "expected_answer": "24",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 15,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "Find the area of a sector with radius 7 cm and angle 90°. Use π = 3.14.",
+            "student_input": "38.47",
+            "expected_answer": "38.47",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 16,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. One alternate angle is (4x + 16)° and the other is 96°. Find x.",
+            "student_input": "20",
+            "expected_answer": "20",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 17,
+            "subject": "algebra",
+            "topic": "inequalities",
+            "question": "Solve:   6 < x + 5 < 10",
+            "student_input": "1",
+            "expected_answer": "1",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 18,
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "question": "In a right triangle, the angle is 30° and the opposite side is 8.0. Find the hypotenuse. Round to 2 decimal places.",
+            "student_input": "16",
+            "expected_answer": "16",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 19,
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "question": "Two similar triangles have corresponding sides in ratio 1 : 3. The smaller triangle has area 9 cm². Find the area of the larger triangle.",
+            "student_input": "81",
+            "expected_answer": "81",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 20,
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "question": "Simplify:   3^3 × 3^2 ÷ 3^1",
+            "student_input": "81",
+            "expected_answer": "81",
+            "correct": true,
+            "difficulty": "hard"
+          }
+        ],
+        "elapsed_seconds": 0,
+        "date": "2026-08-26T20:05:03",
+        "recommended_start": "You are ready to begin!"
+      },
+      {
+        "mode": "pretest",
+        "total_answered": 40,
+        "total_correct": 26,
+        "score_percent": 65,
+        "pass_fail": "borderline",
+        "result_message": "Adequate foundation — focus on the weak areas below.",
+        "hard_streak_peak": 1,
+        "difficulty_journey": [
+          "medium",
+          "easy",
+          "medium",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard",
+          "medium",
+          "hard",
+          "hard"
+        ],
+        "topic_breakdown": {
+          "advanced/trigonometry": {
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "label": "Trigonometry",
+            "attempted": 2,
+            "correct": 1,
+            "percent": 50,
+            "strength": "adequate"
+          },
+          "geometry/circles": {
+            "subject": "geometry",
+            "topic": "circles",
+            "label": "Circles",
+            "attempted": 4,
+            "correct": 4,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/circle_equations": {
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "label": "Circle Equations",
+            "attempted": 3,
+            "correct": 2,
+            "percent": 66,
+            "strength": "adequate"
+          },
+          "algebra/inequalities": {
+            "subject": "algebra",
+            "topic": "inequalities",
+            "label": "Inequalities",
+            "attempted": 1,
+            "correct": 0,
+            "percent": 0,
+            "strength": "weak"
+          },
+          "advanced/linear_functions": {
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "label": "Linear Functions",
+            "attempted": 5,
+            "correct": 3,
+            "percent": 60,
+            "strength": "adequate"
+          },
+          "algebra/word_problems": {
+            "subject": "algebra",
+            "topic": "word_problems",
+            "label": "Word Problems",
+            "attempted": 3,
+            "correct": 2,
+            "percent": 66,
+            "strength": "adequate"
+          },
+          "geometry/coordinate_geometry": {
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "label": "Coordinate Geometry",
+            "attempted": 5,
+            "correct": 2,
+            "percent": 40,
+            "strength": "weak"
+          },
+          "advanced/systems_of_equations": {
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "label": "Systems of Equations",
+            "attempted": 3,
+            "correct": 2,
+            "percent": 66,
+            "strength": "adequate"
+          },
+          "geometry/polygons": {
+            "subject": "geometry",
+            "topic": "polygons",
+            "label": "Polygons",
+            "attempted": 2,
+            "correct": 1,
+            "percent": 50,
+            "strength": "adequate"
+          },
+          "geometry/angles_lines": {
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "label": "Angles & Lines",
+            "attempted": 4,
+            "correct": 4,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/triangles": {
+            "subject": "geometry",
+            "topic": "triangles",
+            "label": "Triangles",
+            "attempted": 1,
+            "correct": 0,
+            "percent": 0,
+            "strength": "weak"
+          },
+          "algebra/exponents_radicals": {
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "label": "Exponents & Radicals",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/similar_triangles": {
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "label": "Similar Triangles",
+            "attempted": 2,
+            "correct": 1,
+            "percent": 50,
+            "strength": "adequate"
+          },
+          "advanced/solid_geometry": {
+            "subject": "advanced",
+            "topic": "solid_geometry",
+            "label": "Solid Geometry",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/parabolas_graphs": {
+            "subject": "advanced",
+            "topic": "parabolas_graphs",
+            "label": "Parabolas & Graphs",
+            "attempted": 1,
+            "correct": 0,
+            "percent": 0,
+            "strength": "weak"
+          }
+        },
+        "strong_topics": [
+          "Circles",
+          "Angles & Lines",
+          "Linear Equations",
+          "Exponents & Radicals",
+          "Solid Geometry"
+        ],
+        "adequate_topics": [
+          "Trigonometry",
+          "Circle Equations",
+          "Linear Functions",
+          "Word Problems",
+          "Systems of Equations",
+          "Polygons",
+          "Similar Triangles"
+        ],
+        "weak_topics": [
+          "Inequalities",
+          "Coordinate Geometry",
+          "Triangles",
+          "Parabolas & Graphs"
+        ],
+        "weak_topic_pairs": [
+          [
+            "algebra",
+            "inequalities"
+          ],
+          [
+            "geometry",
+            "coordinate_geometry"
+          ],
+          [
+            "geometry",
+            "triangles"
+          ],
+          [
+            "advanced",
+            "parabolas_graphs"
+          ]
+        ],
+        "answer_log": [
+          {
+            "q_number": 1,
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "question": "In a right triangle, the angle is 45° and the hypotenuse is 10. Find the side adjacent to the 45° angle. Round to 2 decimal places.",
+            "student_input": "WRONG",
+            "expected_answer": "7.07",
+            "correct": false,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 2,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "Find the circumference of a circle with radius 11 cm. Use π = 3.14.",
+            "student_input": "69.08",
+            "expected_answer": "69.08",
+            "correct": true,
+            "difficulty": "easy"
+          },
+          {
+            "q_number": 3,
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "question": "Find the area of the circle (use π = 3.14, round to 2 dp):\n   (x − 2)² + (y − 5)² = 4",
+            "student_input": "12.57",
+            "expected_answer": "12.57",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 4,
+            "subject": "algebra",
+            "topic": "inequalities",
+            "question": "Solve:   4 < x + 7 < 14",
+            "student_input": "WRONG",
+            "expected_answer": "-3",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 5,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "Find the x-intercept of the line  y = -1x + 1.",
+            "student_input": "1",
+            "expected_answer": "1",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 6,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A parent is currently 4 times as old as their child. In 6 years, the parent will be 30 years old. How old is the child now?",
+            "student_input": "6",
+            "expected_answer": "6",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 7,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "The midpoint of segment AB is M(-3, 0). If A is (4, -1), find the x-coordinate of B.",
+            "student_input": "WRONG",
+            "expected_answer": "-10",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 8,
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "question": "Solve the system:\n   2x + 3y = 6\n   5x − 3y = 15\nFind the value of x.",
+            "student_input": "3",
+            "expected_answer": "3",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 9,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "The midpoint of segment AB is M(-3, -2). If A is (-3, -1), find the x-coordinate of B.",
+            "student_input": "-3",
+            "expected_answer": "-3",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 10,
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "question": "Tickets cost $2 each and passes cost $5 each. A total of 11 items were bought for $46. How many tickets were purchased?",
+            "student_input": "WRONG",
+            "expected_answer": "3",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 11,
+            "subject": "geometry",
+            "topic": "polygons",
+            "question": "Find the area of a trapezoid with parallel sides 9 cm and 16 cm and height 6 cm.",
+            "student_input": "75",
+            "expected_answer": "75",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 12,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. One alternate angle is (3x + 6)° and the other is 75°. Find x.",
+            "student_input": "23",
+            "expected_answer": "23",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 13,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "Find the gradient of the line through A(2, -1) and B(-1, 2), then find its y-intercept. Enter the gradient.",
+            "student_input": "WRONG",
+            "expected_answer": "-1",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 14,
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "question": "In a right triangle, the angle is 45° and the hypotenuse is 12. Find the side opposite the 45° angle. Round to 2 decimal places.",
+            "student_input": "8.49",
+            "expected_answer": "8.49",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 15,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "Find the area of a sector with radius 7 cm and angle 60°. Use π = 3.14.",
+            "student_input": "25.64",
+            "expected_answer": "25.64",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 16,
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "question": "Find the radius of the circle:\n   x² + y² − 6x + 8y − 24 = 0",
+            "student_input": "WRONG",
+            "expected_answer": "7",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 17,
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "question": "Solve:   4x + 2 = 3x + 5",
+            "student_input": "3",
+            "expected_answer": "3",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 18,
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "question": "Tickets cost $6 each and passes cost $5 each. A total of 14 items were bought for $77. How many tickets were purchased?",
+            "student_input": "7",
+            "expected_answer": "7",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 19,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "Find the gradient of the line through A(2, 2) and B(4, 6), then find its y-intercept. Enter the gradient.",
+            "student_input": "WRONG",
+            "expected_answer": "2",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 20,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "Find the area of a circle with diameter 12 cm. Use π = 3.14.",
+            "student_input": "113.04",
+            "expected_answer": "113.04",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 21,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. One alternate angle is (4x + 10)° and the other is 190°. Find x.",
+            "student_input": "45",
+            "expected_answer": "45",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 22,
+            "subject": "geometry",
+            "topic": "triangles",
+            "question": "In a triangle, two interior angles are 57° and 69°. Find the exterior angle adjacent to the third interior angle.",
+            "student_input": "WRONG",
+            "expected_answer": "126",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 23,
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "question": "Simplify:   5^7 ÷ 5^3",
+            "student_input": "625",
+            "expected_answer": "625",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 24,
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "question": "Two similar triangles have corresponding sides in ratio 1 : 2. The smaller triangle has area 36 cm². Find the area of the larger triangle.",
+            "student_input": "144",
+            "expected_answer": "144",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 25,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "A line has slope -1. What is the slope of a line perpendicular to it?",
+            "student_input": "WRONG",
+            "expected_answer": "2.0",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 26,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "Find the distance between A(1, -2) and B(9, -17).",
+            "student_input": "17",
+            "expected_answer": "17",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 27,
+            "subject": "advanced",
+            "topic": "circle_equations",
+            "question": "Find the circumference of the circle (use π = 3.14, round to 2 dp):\n   (x + 5)² + (y − 5)² = 9",
+            "student_input": "18.85",
+            "expected_answer": "18.85",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 28,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A train travels 120 km at 60 km/h. How many hours does the journey take?",
+            "student_input": "WRONG",
+            "expected_answer": "2",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 29,
+            "subject": "advanced",
+            "topic": "solid_geometry",
+            "question": "Find the surface area of a rectangular prism with length 3, width 4, and height 8.",
+            "student_input": "136",
+            "expected_answer": "136",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 30,
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "question": "Solve:   7(x + 3) = 3(x + 23)",
+            "student_input": "12",
+            "expected_answer": "12",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 31,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "Find the slope of the line  4x + 3y = 6.",
+            "student_input": "WRONG",
+            "expected_answer": "-1.3333",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 32,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "Maria is 4 times as old as her brother. Their combined age is 30. How old is her brother?",
+            "student_input": "6",
+            "expected_answer": "6",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 33,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "Find the slope of the line  2x + 4y = 16.",
+            "student_input": "-0.5",
+            "expected_answer": "-0.5",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 34,
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "question": "Two similar triangles have sides in ratio 1 : 4. The smaller triangle has perimeter 14 cm. Find the perimeter of the larger triangle.",
+            "student_input": "WRONG",
+            "expected_answer": "56",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 35,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two lines intersect. Vertically opposite angles are (2x + 16)° and (1x + 28)°. Find x.",
+            "student_input": "12",
+            "expected_answer": "12",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 36,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "A circle has circumference 43.96 cm. Find its radius. Use π = 3.14.",
+            "student_input": "7",
+            "expected_answer": "7",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 37,
+            "subject": "geometry",
+            "topic": "polygons",
+            "question": "A quadrilateral has three angles of 71°, 97°, and 86°. Find the fourth angle.",
+            "student_input": "WRONG",
+            "expected_answer": "106",
+            "correct": false,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 38,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "A line has slope -2 and passes through (1, 7). Find the y-intercept.",
+            "student_input": "9",
+            "expected_answer": "9",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 39,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. One alternate angle is (3x + 15)° and the other is 75°. Find x.",
+            "student_input": "20",
+            "expected_answer": "20",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 40,
+            "subject": "advanced",
+            "topic": "parabolas_graphs",
+            "question": "What is the maximum value of  y = -1x² − 2x + 4?",
+            "student_input": "WRONG",
+            "expected_answer": "5",
+            "correct": false,
+            "difficulty": "hard"
+          }
+        ],
+        "elapsed_seconds": 0,
+        "date": "2026-08-26T20:05:50",
+        "recommended_start": "Inequalities"
+      }
+    ],
+    "final": [
+      {
+        "date": "2026-08-18T20:03:52",
+        "mode": "final",
+        "score_percent": 45,
+        "pass_fail": "fail",
+        "total_answered": 30,
+        "hard_streak_peak": 5,
+        "elapsed_seconds": 640,
+        "weak_topics": [
+          "Exponents & Radicals"
+        ],
+        "strong_topics": [
+          "Linear Equations"
+        ],
+        "topic_breakdown": {
+          "algebra/exponents_radicals": {
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "label": "Exponents & Radicals",
+            "attempted": 4,
+            "correct": 1,
+            "percent": 25,
+            "strength": "weak"
+          },
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          }
+        }
+      },
+      {
+        "date": "2026-08-22T20:03:52",
+        "mode": "final",
+        "score_percent": 65,
+        "pass_fail": "borderline",
+        "total_answered": 30,
+        "hard_streak_peak": 5,
+        "elapsed_seconds": 620,
+        "weak_topics": [
+          "Exponents & Radicals"
+        ],
+        "strong_topics": [
+          "Linear Equations",
+          "Quadratics"
+        ],
+        "topic_breakdown": {
+          "algebra/exponents_radicals": {
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "label": "Exponents & Radicals",
+            "attempted": 4,
+            "correct": 1,
+            "percent": 25,
+            "strength": "weak"
+          },
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          },
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          }
+        }
+      },
+      {
+        "date": "2026-08-25T20:03:52",
+        "mode": "final",
+        "score_percent": 85,
+        "pass_fail": "pass",
+        "total_answered": 30,
+        "hard_streak_peak": 5,
+        "elapsed_seconds": 605,
+        "weak_topics": [],
+        "strong_topics": [
+          "Linear Equations",
+          "Quadratics",
+          "Exponents & Radicals"
+        ],
+        "topic_breakdown": {
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          },
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          },
+          "algebra/exponents_radicals": {
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "label": "Exponents & Radicals",
+            "attempted": 5,
+            "correct": 4,
+            "percent": 80,
+            "strength": "strong"
+          }
+        }
+      },
+      {
+        "mode": "final",
+        "total_answered": 30,
+        "total_correct": 30,
+        "score_percent": 100,
+        "pass_fail": "pass",
+        "result_message": "Excellent — consistent mastery at Hard difficulty confirmed.",
+        "hard_streak_peak": 29,
+        "difficulty_journey": [
+          "medium",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard",
+          "hard"
+        ],
+        "topic_breakdown": {
+          "algebra/word_problems": {
+            "subject": "algebra",
+            "topic": "word_problems",
+            "label": "Word Problems",
+            "attempted": 5,
+            "correct": 5,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/polygons": {
+            "subject": "geometry",
+            "topic": "polygons",
+            "label": "Polygons",
+            "attempted": 3,
+            "correct": 3,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/angles_lines": {
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "label": "Angles & Lines",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/quadratics": {
+            "subject": "algebra",
+            "topic": "quadratics",
+            "label": "Quadratics",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/systems_of_equations": {
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "label": "Systems of Equations",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/triangles": {
+            "subject": "geometry",
+            "topic": "triangles",
+            "label": "Triangles",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/coordinate_geometry": {
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "label": "Coordinate Geometry",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/similar_triangles": {
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "label": "Similar Triangles",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/parabolas_graphs": {
+            "subject": "advanced",
+            "topic": "parabolas_graphs",
+            "label": "Parabolas & Graphs",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/linear_equations": {
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "label": "Linear Equations",
+            "attempted": 2,
+            "correct": 2,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/trigonometry": {
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "label": "Trigonometry",
+            "attempted": 3,
+            "correct": 3,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/solid_geometry": {
+            "subject": "advanced",
+            "topic": "solid_geometry",
+            "label": "Solid Geometry",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/inequalities": {
+            "subject": "algebra",
+            "topic": "inequalities",
+            "label": "Inequalities",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "advanced/linear_functions": {
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "label": "Linear Functions",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "geometry/circles": {
+            "subject": "geometry",
+            "topic": "circles",
+            "label": "Circles",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          },
+          "algebra/exponents_radicals": {
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "label": "Exponents & Radicals",
+            "attempted": 1,
+            "correct": 1,
+            "percent": 100,
+            "strength": "strong"
+          }
+        },
+        "strong_topics": [
+          "Word Problems",
+          "Polygons",
+          "Angles & Lines",
+          "Quadratics",
+          "Systems of Equations",
+          "Triangles",
+          "Coordinate Geometry",
+          "Similar Triangles",
+          "Parabolas & Graphs",
+          "Linear Equations",
+          "Trigonometry",
+          "Solid Geometry",
+          "Inequalities",
+          "Linear Functions",
+          "Circles",
+          "Exponents & Radicals"
+        ],
+        "adequate_topics": [],
+        "weak_topics": [],
+        "weak_topic_pairs": [],
+        "answer_log": [
+          {
+            "q_number": 1,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "Nina is 3 times as old as Tom. Their combined age is 20. How old is Tom?",
+            "student_input": "5",
+            "expected_answer": "5",
+            "correct": true,
+            "difficulty": "medium"
+          },
+          {
+            "q_number": 2,
+            "subject": "geometry",
+            "topic": "polygons",
+            "question": "A regular polygon has each exterior angle equal to 40°. How many sides does it have?",
+            "student_input": "9",
+            "expected_answer": "9",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 3,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. The co-interior angles are (3x + 23)° and (2x + 17)°. Find x.",
+            "student_input": "28",
+            "expected_answer": "28",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 4,
+            "subject": "algebra",
+            "topic": "quadratics",
+            "question": "Solve by completing the square:   x² − 2x − 3 = 0",
+            "student_input": "-1",
+            "expected_answer": "-1",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 5,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A parent is currently 3 times as old as their child. In 8 years, the parent will be 35 years old. How old is the child now?",
+            "student_input": "9",
+            "expected_answer": "9",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 6,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A parent is currently 2 times as old as their child. In 9 years, the parent will be 29 years old. How old is the child now?",
+            "student_input": "10",
+            "expected_answer": "10",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 7,
+            "subject": "geometry",
+            "topic": "angles_lines",
+            "question": "Two parallel lines are cut by a transversal. One alternate angle is (3x + 19)° and the other is 139°. Find x.",
+            "student_input": "40",
+            "expected_answer": "40",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 8,
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "question": "Tickets cost $4 each and passes cost $5 each. A total of 6 items were bought for $27. How many tickets were purchased?",
+            "student_input": "3",
+            "expected_answer": "3",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 9,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A car travels at 100 km/h for 2 hours. How many kilometres does it travel?",
+            "student_input": "200",
+            "expected_answer": "200",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 10,
+            "subject": "geometry",
+            "topic": "triangles",
+            "question": "A right triangle has hypotenuse 25 cm and one leg 7 cm. Find the other leg in cm.",
+            "student_input": "24",
+            "expected_answer": "24",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 11,
+            "subject": "geometry",
+            "topic": "coordinate_geometry",
+            "question": "Find the gradient of the line through A(2, 1) and B(0, 5), then find its y-intercept. Enter the gradient.",
+            "student_input": "-2",
+            "expected_answer": "-2",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 12,
+            "subject": "geometry",
+            "topic": "triangles",
+            "question": "In a triangle, two interior angles are 57° and 68°. Find the exterior angle adjacent to the third interior angle.",
+            "student_input": "125",
+            "expected_answer": "125",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 13,
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "question": "Two similar triangles have sides in ratio 1 : 3. The smaller triangle has perimeter 29 cm. Find the perimeter of the larger triangle.",
+            "student_input": "87",
+            "expected_answer": "87",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 14,
+            "subject": "advanced",
+            "topic": "parabolas_graphs",
+            "question": "What is the maximum value of  y = -1x² − 8x?",
+            "student_input": "16",
+            "expected_answer": "16",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 15,
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "question": "Solve:   6x + 5 = 38   (give answer as a decimal)",
+            "student_input": "5.5",
+            "expected_answer": "5.5",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 16,
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "question": "In a right triangle, the opposite side is 8.49 and the hypotenuse is 12. Find the angle θ in degrees. Round to the nearest whole number.",
+            "student_input": "45",
+            "expected_answer": "45",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 17,
+            "subject": "advanced",
+            "topic": "solid_geometry",
+            "question": "Find the volume of a sphere with radius 7. Use π = 3.14 and round to 2 decimal places.",
+            "student_input": "1436.03",
+            "expected_answer": "1436.03",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 18,
+            "subject": "algebra",
+            "topic": "inequalities",
+            "question": "Solve:   −4x + 5 ≥ 18",
+            "student_input": "-3",
+            "expected_answer": "-3",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 19,
+            "subject": "advanced",
+            "topic": "systems_of_equations",
+            "question": "Pens cost $6 each and markers cost $2 each. A total of 10 items were bought for $44. How many pens were purchased?",
+            "student_input": "6",
+            "expected_answer": "6",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 20,
+            "subject": "algebra",
+            "topic": "linear_equations",
+            "question": "Solve:   5(x + 6) = 4(x + 9)",
+            "student_input": "6",
+            "expected_answer": "6",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 21,
+            "subject": "advanced",
+            "topic": "linear_functions",
+            "question": "A line has slope -3. What is the slope of a line perpendicular to it?",
+            "student_input": "0.3333",
+            "expected_answer": "0.3333",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 22,
+            "subject": "algebra",
+            "topic": "word_problems",
+            "question": "A train travels 500 km at 100 km/h. How many hours does the journey take?",
+            "student_input": "5",
+            "expected_answer": "5",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 23,
+            "subject": "geometry",
+            "topic": "polygons",
+            "question": "A regular polygon has each exterior angle equal to 60°. How many sides does it have?",
+            "student_input": "6",
+            "expected_answer": "6",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 24,
+            "subject": "advanced",
+            "topic": "similar_triangles",
+            "question": "Two similar triangles have sides in ratio 1 : 4. The smaller triangle has perimeter 18 cm. Find the perimeter of the larger triangle.",
+            "student_input": "72",
+            "expected_answer": "72",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 25,
+            "subject": "algebra",
+            "topic": "quadratics",
+            "question": "Solve by completing the square:   x² − 4x − 5 = 0",
+            "student_input": "-1",
+            "expected_answer": "-1",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 26,
+            "subject": "geometry",
+            "topic": "polygons",
+            "question": "A quadrilateral has three angles of 84°, 82°, and 105°. Find the fourth angle.",
+            "student_input": "89",
+            "expected_answer": "89",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 27,
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "question": "In a right triangle, the opposite side is 6.0 and the hypotenuse is 12. Find the angle θ in degrees. Round to the nearest whole number.",
+            "student_input": "30",
+            "expected_answer": "30",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 28,
+            "subject": "advanced",
+            "topic": "trigonometry",
+            "question": "In a right triangle, the opposite side is 10.39 and the hypotenuse is 12. Find the angle θ in degrees. Round to the nearest whole number.",
+            "student_input": "60",
+            "expected_answer": "60",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 29,
+            "subject": "geometry",
+            "topic": "circles",
+            "question": "Find the area of a sector with radius 5 cm and angle 60°. Use π = 3.14.",
+            "student_input": "13.08",
+            "expected_answer": "13.08",
+            "correct": true,
+            "difficulty": "hard"
+          },
+          {
+            "q_number": 30,
+            "subject": "algebra",
+            "topic": "exponents_radicals",
+            "question": "Simplify:   2^4 × 2^4 ÷ 2^5",
+            "student_input": "8",
+            "expected_answer": "8",
+            "correct": true,
+            "difficulty": "hard"
+          }
+        ],
+        "elapsed_seconds": 0,
+        "date": "2026-08-26T20:06:04",
+        "recommended_start": ""
+      }
+    ]
   }
 }
