@@ -318,14 +318,15 @@ class ProgressTracker:
         """
         ev = self._phase_data(subject, topic, config.PHASE_EVALUATE)
         return {
-            "label":      config.TOPIC_LABELS.get(topic, topic),
-            "learn":      self.get_phase_status(subject, topic, config.PHASE_LEARN),
-            "practice":   self.get_phase_status(subject, topic, config.PHASE_PRACTICE),
-            "evaluate":   self.get_phase_status(subject, topic, config.PHASE_EVALUATE),
-            "mastered":   ev.get("mastered", False),
-            "best_score": ev.get("best_score", 0),
-            "difficulty": ev.get("difficulty", config.DIFFICULTY_EASY),
-            "locked":     self.is_subject_locked(subject),
+            "label":             config.TOPIC_LABELS.get(topic, topic),
+            "learn":             self.get_phase_status(subject, topic, config.PHASE_LEARN),
+            "practice":          self.get_phase_status(subject, topic, config.PHASE_PRACTICE),
+            "evaluate":          self.get_phase_status(subject, topic, config.PHASE_EVALUATE),
+            "mastered":          ev.get("mastered", False),
+            "best_score":        ev.get("best_score", 0),
+            "difficulty":        ev.get("difficulty", config.DIFFICULTY_EASY),
+            "replay_difficulty": ev.get("replay_difficulty"),
+            "locked":            self.is_subject_locked(subject),
         }
 
     def get_overall_progress(self) -> dict:
@@ -378,3 +379,30 @@ class ProgressTracker:
         return self._phase_data(subject, topic, config.PHASE_EVALUATE).get(
             "difficulty", config.DIFFICULTY_EASY
         )
+
+    def set_difficulty(self, subject: str, topic: str, difficulty: str) -> None:
+        """Manually set the difficulty level for a topic's evaluate phase."""
+        self._data[subject][topic][config.PHASE_EVALUATE]["difficulty"] = difficulty
+        self.save()
+        logger.info("Difficulty set: %s / %s -> %s", subject, topic, difficulty)
+
+    def reset_for_replay(self, subject: str, topic: str) -> None:
+        """
+        Reset a mastered topic back to the start of the Learn phase for a
+        difficulty replay. The mastery record (mastered flag, best_score)
+        is preserved so the topic still counts as mastered elsewhere.
+        """
+        next_difficulty = self.get_current_difficulty(subject, topic)
+
+        self._data[subject][topic][config.PHASE_LEARN]["status"] = config.STATUS_NOT_STARTED
+
+        practice = self._data[subject][topic][config.PHASE_PRACTICE]
+        practice["status"]      = config.STATUS_NOT_STARTED
+        practice["best_streak"] = 0
+
+        evaluate = self._data[subject][topic][config.PHASE_EVALUATE]
+        evaluate["status"]            = config.STATUS_NOT_STARTED
+        evaluate["replay_difficulty"] = next_difficulty
+
+        self.save()
+        logger.info("Replay reset: %s / %s -> %s", subject, topic, next_difficulty)

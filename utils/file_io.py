@@ -192,7 +192,14 @@ DEFAULT_PROGRESS = {
         "circle_equations":    _make_topic_default(locked=True),
         "solid_geometry":      _make_topic_default(locked=True),
     },
+    "cat_history": {
+        "pretest": [],
+        "final":   [],
+    },
 }
+
+# Maximum number of CAT results kept per mode — oldest are dropped first.
+_CAT_HISTORY_LIMIT = 10
 
 
 # ---------------------------------------------------------------------------
@@ -218,3 +225,24 @@ def initialise_session_log_if_missing() -> None:
     path = get_session_log_path()
     if not os.path.exists(path):
         write_json(path, [])
+
+
+def save_cat_result(result: dict) -> None:
+    """
+    Append one completed CAT session result to progress.json's cat_history,
+    keyed by mode ("pretest" or "final"). Keeps only the most recent
+    _CAT_HISTORY_LIMIT results per mode — oldest are dropped first.
+    """
+    path = get_progress_path()
+    data = read_json(path)
+
+    history = data.setdefault("cat_history", {"pretest": [], "final": []})
+    mode = result.get("mode", "pretest")
+    bucket = history.setdefault(mode, [])
+
+    bucket.append(result)
+    if len(bucket) > _CAT_HISTORY_LIMIT:
+        del bucket[:len(bucket) - _CAT_HISTORY_LIMIT]
+
+    write_json(path, data)
+    logger.debug("save_cat_result: saved %s result, mode=%s", path, mode)

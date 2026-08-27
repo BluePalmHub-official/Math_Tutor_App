@@ -5,11 +5,15 @@
 
 import tkinter as tk
 import logging
+from datetime import datetime
 
 import config
 from gui.styles import COLOURS, FONTS, PAD, make_button
+from utils.file_io import read_json, get_progress_path
 
 logger = logging.getLogger(__name__)
+
+_CAT_TEAL = "#17A398"
 
 
 class HomeScreen(tk.Frame):
@@ -153,6 +157,12 @@ class HomeScreen(tk.Frame):
         # Stats
         self._build_stats(main, overall)
 
+        # Divider
+        tk.Frame(main, bg=COLOURS["border"], height=1).pack(fill="x", pady=PAD["md"])
+
+        # CAT panels
+        self._build_cat_panels(main, overall)
+
     # -----------------------------------------------------------------------
     # Module card
     # -----------------------------------------------------------------------
@@ -261,3 +271,157 @@ class HomeScreen(tk.Frame):
                 fg=COLOURS["text_secondary"],
                 bg=COLOURS["bg_card"],
             ).pack()
+
+    # -----------------------------------------------------------------------
+    # CAT panels — Diagnostic Pre-Test & Final Adaptive Exam
+    # -----------------------------------------------------------------------
+
+    def _build_cat_panels(self, parent: tk.Widget, overall: dict) -> None:
+        tk.Label(
+            parent,
+            text="Assessments",
+            font=FONTS["subheading"],
+            fg=COLOURS["text_primary"],
+            bg=COLOURS["bg_main"],
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        row = tk.Frame(parent, bg=COLOURS["bg_main"])
+        row.pack(fill="x")
+
+        self._build_pretest_panel(row)
+        tk.Frame(row, bg=COLOURS["bg_main"], width=PAD["lg"]).pack(side="left")
+        self._build_final_exam_panel(row, overall)
+
+    def _build_pretest_panel(self, parent: tk.Widget) -> None:
+        panel = tk.Frame(
+            parent, bg=COLOURS["bg_card"],
+            highlightthickness=1, highlightbackground=_CAT_TEAL,
+        )
+        panel.pack(side="left", fill="both", expand=True, ipadx=PAD["md"], ipady=PAD["md"])
+
+        tk.Label(
+            panel, text="📋  Diagnostic Pre-Test",
+            font=FONTS["heading"], fg=_CAT_TEAL, bg=COLOURS["bg_card"],
+        ).pack(anchor="w", padx=PAD["md"], pady=(PAD["md"], PAD["sm"]))
+
+        tk.Label(
+            panel,
+            text=("Not sure where to start? Take a quick diagnostic test to "
+                  "identify your strong and weak areas before you begin studying."),
+            font=FONTS["small"], fg=COLOURS["text_secondary"], bg=COLOURS["bg_card"],
+            wraplength=280, justify="left",
+        ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["sm"]))
+
+        last_result = self._get_last_cat_result(config.CAT_MODE_PRETEST)
+        if last_result:
+            tk.Label(
+                panel, text=last_result,
+                font=FONTS["tiny"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+            ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["sm"]))
+
+        make_button(
+            panel, "Take Diagnostic Pre-Test →",
+            lambda: self.app.go_cat(mode=config.CAT_MODE_PRETEST),
+            variant="primary", width=24,
+        ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["md"]))
+
+    def _build_final_exam_panel(self, parent: tk.Widget, overall: dict) -> None:
+        all_mastered = (
+            overall["algebra_mastered"]  == overall["algebra_total"] and
+            overall["geometry_mastered"] == overall["geometry_total"] and
+            overall["advanced_mastered"] == overall["advanced_total"] and
+            not overall["geometry_locked"] and
+            not overall["advanced_locked"]
+        )
+
+        border = COLOURS["accent_gold"] if all_mastered else COLOURS["border"]
+        panel = tk.Frame(
+            parent, bg=COLOURS["bg_card"],
+            highlightthickness=1, highlightbackground=border,
+        )
+        panel.pack(side="left", fill="both", expand=True, ipadx=PAD["md"], ipady=PAD["md"])
+
+        if all_mastered:
+            tk.Label(
+                panel, text="🎓  Final Adaptive Exam  ✅  READY",
+                font=FONTS["heading"], fg=COLOURS["accent_gold"], bg=COLOURS["bg_card"],
+            ).pack(anchor="w", padx=PAD["md"], pady=(PAD["md"], PAD["sm"]))
+
+            tk.Label(
+                panel,
+                text="60 questions · Adaptive difficulty · Tests all topics · Just like NCLEX CAT",
+                font=FONTS["small"], fg=COLOURS["text_secondary"], bg=COLOURS["bg_card"],
+                wraplength=280, justify="left",
+            ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["sm"]))
+
+            last_result = self._get_last_cat_result(config.CAT_MODE_FINAL)
+            if last_result:
+                tk.Label(
+                    panel, text=last_result,
+                    font=FONTS["tiny"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+                ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["sm"]))
+
+            make_button(
+                panel, "Start Final Exam →",
+                lambda: self.app.go_cat(mode=config.CAT_MODE_FINAL),
+                variant="gold", width=24,
+            ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["md"]))
+        else:
+            tk.Label(
+                panel, text="🎓  Final Adaptive Exam  🔒",
+                font=FONTS["heading"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+            ).pack(anchor="w", padx=PAD["md"], pady=(PAD["md"], PAD["sm"]))
+
+            tk.Label(
+                panel,
+                text="Complete all topics in Algebra, Geometry, and Advanced to unlock the Final Exam.",
+                font=FONTS["small"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+                wraplength=280, justify="left",
+            ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["sm"]))
+
+            tk.Label(
+                panel,
+                text=(f"Algebra: {overall['algebra_mastered']}/{overall['algebra_total']}  ·  "
+                      f"Geometry: {overall['geometry_mastered']}/{overall['geometry_total']}  ·  "
+                      f"Advanced: {overall['advanced_mastered']}/{overall['advanced_total']}"),
+                font=FONTS["tiny"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+            ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["sm"]))
+
+            make_button(
+                panel, "🔒  Locked", lambda: None,
+                variant="ghost", width=24,
+            ).pack(anchor="w", padx=PAD["md"], pady=(0, PAD["md"]))
+
+    def _get_last_cat_result(self, mode: str):
+        """Return a formatted one-line summary of the most recent CAT result for this mode, or None."""
+        data = read_json(get_progress_path())
+        history = data.get("cat_history", {}).get(mode, [])
+        if not history:
+            return None
+
+        entry = history[-1]
+        score = entry.get("score_percent", 0)
+        when  = self._relative_date(entry.get("date", ""))
+
+        if mode == config.CAT_MODE_PRETEST:
+            weak_count = len(entry.get("weak_topics", []))
+            noun = "weak topic" if weak_count == 1 else "weak topics"
+            return f"Last result: {score}% · {weak_count} {noun} · {when}"
+
+        result = str(entry.get("pass_fail", "")).title()
+        return f"Last result: {score}% · {result} · {when}"
+
+    def _relative_date(self, iso_str: str) -> str:
+        """Return a human-friendly 'N days ago' string from an ISO date, or ''."""
+        if not iso_str:
+            return ""
+        try:
+            dt = datetime.fromisoformat(iso_str)
+        except (ValueError, TypeError):
+            return ""
+        days = (datetime.now() - dt).days
+        if days <= 0:
+            return "today"
+        if days == 1:
+            return "1 day ago"
+        return f"{days} days ago"

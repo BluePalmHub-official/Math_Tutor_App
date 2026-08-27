@@ -47,6 +47,47 @@ DIFFICULTY_HARD   = "hard"
 DIFFICULTY_ORDER  = [DIFFICULTY_EASY, DIFFICULTY_MEDIUM, DIFFICULTY_HARD]
 
 # -----------------------------------------------------------------------------
+# Computerised Adaptive Test (CAT) settings
+# -----------------------------------------------------------------------------
+
+# CAT shared settings
+CAT_START_DIFFICULTY     = "medium"
+
+# Pre-test settings (diagnostic — lighter)
+PRETEST_MINIMUM_QUESTIONS  = 20
+PRETEST_TOTAL_QUESTIONS    = 40
+PRETEST_PASS_HARD_STREAK   = 3
+PRETEST_FAIL_EASY_STREAK   = 5
+PRETEST_PASS_SCORE_PERCENT = 75
+PRETEST_FAIL_SCORE_PERCENT = 40
+PRETEST_MIN_HARD_FOR_PASS  = 10
+
+# Final exam settings (stricter)
+CAT_MINIMUM_QUESTIONS    = 30
+CAT_TOTAL_QUESTIONS      = 60
+CAT_PASS_HARD_STREAK     = 5
+CAT_FAIL_EASY_STREAK     = 7
+CAT_PASS_SCORE_PERCENT   = 80
+CAT_FAIL_SCORE_PERCENT   = 45
+CAT_MIN_HARD_FOR_PASS    = 20
+
+# CAT modes
+CAT_MODE_PRETEST = "pretest"
+CAT_MODE_FINAL   = "final"
+
+# Result messages — Pre-test
+PRETEST_RESULT_STRONG     = "Strong foundation — you are well prepared to begin."
+PRETEST_RESULT_ADEQUATE   = "Adequate foundation — focus on the weak areas below."
+PRETEST_RESULT_WEAK       = "Needs foundation work — start with the topics marked weak."
+
+# Result messages — Final exam
+CAT_RESULT_PASS_EARLY     = "Excellent — consistent mastery at Hard difficulty confirmed."
+CAT_RESULT_FAIL_EARLY     = "More practice needed — review the topics listed below."
+CAT_RESULT_PASS_SCORE     = "Passed — strong overall performance across all topics."
+CAT_RESULT_FAIL_SCORE     = "Not yet — focus on your weak topics and try again."
+CAT_RESULT_BORDERLINE     = "Borderline — some topics strong, others need more work."
+
+# -----------------------------------------------------------------------------
 # Topic definitions
 # These keys must exactly match the module filenames in problems/ and content/.
 # The order here controls the display order in the UI.

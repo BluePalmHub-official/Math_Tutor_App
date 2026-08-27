@@ -97,6 +97,7 @@ class LearnScreen(tk.Frame):
 
     def _build(self) -> None:
         self._build_header()
+        self._build_replay_banner()
 
         # Body: sidebar + content panel
         body = tk.Frame(self, bg=COLOURS["bg_main"])
@@ -138,6 +139,25 @@ class LearnScreen(tk.Frame):
             fg=COLOURS["accent_blue"],
             bg=COLOURS["bg_header"],
         ).pack(side="right", padx=PAD["lg"])
+
+    def _build_replay_banner(self) -> None:
+        """Show a banner when this Learn visit is a post-mastery difficulty replay."""
+        summary = self.tracker.get_topic_summary(self.subject, self.topic)
+        if not summary.get("mastered"):
+            return
+
+        target = summary.get("replay_difficulty") or summary.get("difficulty", config.DIFFICULTY_EASY)
+
+        banner = tk.Frame(self, bg=COLOURS["accent_gold"])
+        banner.pack(fill="x")
+        tk.Label(
+            banner,
+            text=f"🔁  Reviewing concepts before {target.title()} difficulty practice",
+            font=FONTS["small_bold"],
+            fg=COLOURS["text_dark"],
+            bg=COLOURS["accent_gold"],
+            pady=6,
+        ).pack()
 
     # -----------------------------------------------------------------------
     # Sidebar

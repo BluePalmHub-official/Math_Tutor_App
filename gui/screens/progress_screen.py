@@ -11,10 +11,12 @@
 
 import tkinter as tk
 from tkinter import ttk
+from datetime import datetime
 import logging
 
 import config
 from gui.styles import COLOURS, FONTS, PAD, make_button, phase_colour, phase_dot
+from utils.file_io import read_json, get_progress_path
 
 logger = logging.getLogger(__name__)
 
@@ -63,6 +65,7 @@ class ProgressScreen(tk.Frame):
         self._build_overall_panel(body, overall)
         self._build_subject_section(body, config.SUBJECT_ALGEBRA, overall)
         self._build_subject_section(body, config.SUBJECT_GEOMETRY, overall)
+        self._build_assessment_history(body, overall)
 
     # -----------------------------------------------------------------------
     # Header
@@ -335,3 +338,151 @@ class ProgressScreen(tk.Frame):
                 right, f"{btn_text} →", cmd,
                 variant="primary", pady=4, padx=10, size="small_bold",
             ).pack()
+
+    # -----------------------------------------------------------------------
+    # Assessment History  (CAT pre-test / final exam)
+    # -----------------------------------------------------------------------
+
+    def _build_assessment_history(self, parent: tk.Widget, overall: dict) -> None:
+        tk.Frame(parent, bg=COLOURS["border"], height=1).pack(fill="x", pady=(0, PAD["md"]))
+        tk.Label(
+            parent, text="Assessment History",
+            font=FONTS["heading"], fg=COLOURS["text_primary"], bg=COLOURS["bg_main"],
+        ).pack(anchor="w", pady=(0, PAD["md"]))
+
+        data = read_json(get_progress_path())
+        cat_history = data.get("cat_history", {})
+
+        self._build_pretest_history(parent, cat_history.get("pretest", []))
+        self._build_final_exam_history(parent, cat_history.get("final", []), overall)
+
+    def _build_pretest_history(self, parent: tk.Widget, history: list) -> None:
+        tk.Label(
+            parent, text="📋  Diagnostic Pre-Tests",
+            font=FONTS["subheading"], fg=COLOURS["text_primary"], bg=COLOURS["bg_main"],
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        make_button(
+            parent, "Take Pre-Test Now →",
+            lambda: self.app.go_cat(mode=config.CAT_MODE_PRETEST),
+            variant="primary", pady=6, padx=14, size="small_bold",
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        if not history:
+            tk.Label(
+                parent, text="No pre-tests taken yet.",
+                font=FONTS["small"], fg=COLOURS["text_muted"], bg=COLOURS["bg_main"],
+            ).pack(anchor="w", pady=(0, PAD["lg"]))
+            return
+
+        for entry in list(reversed(history))[:5]:
+            self._build_cat_history_card(parent, entry, config.CAT_MODE_PRETEST)
+
+        tk.Frame(parent, bg=COLOURS["bg_main"], height=PAD["md"]).pack()
+
+    def _build_final_exam_history(self, parent: tk.Widget, history: list, overall: dict) -> None:
+        tk.Label(
+            parent, text="🎓  Final Adaptive Exam",
+            font=FONTS["subheading"], fg=COLOURS["text_primary"], bg=COLOURS["bg_main"],
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        all_mastered = (
+            overall["algebra_mastered"]  == overall["algebra_total"] and
+            overall["geometry_mastered"] == overall["geometry_total"] and
+            overall["advanced_mastered"] == overall["advanced_total"] and
+            not overall["geometry_locked"] and
+            not overall["advanced_locked"]
+        )
+
+        if not all_mastered:
+            tk.Label(
+                parent, text="Unlock by mastering all topics.",
+                font=FONTS["small"], fg=COLOURS["text_muted"], bg=COLOURS["bg_main"],
+            ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+            total_mastered = (overall["algebra_mastered"] + overall["geometry_mastered"]
+                               + overall["advanced_mastered"])
+            total_topics = (overall["algebra_total"] + overall["geometry_total"]
+                             + overall["advanced_total"])
+            pct = int((total_mastered / total_topics) * 100) if total_topics else 0
+
+            bar_frame = tk.Frame(parent, bg=COLOURS["bg_main"])
+            bar_frame.pack(fill="x", pady=(0, PAD["lg"]))
+            pv = tk.DoubleVar(value=pct)
+            ttk.Progressbar(
+                bar_frame, variable=pv, maximum=100,
+                style="Gold.Horizontal.TProgressbar",
+            ).pack(fill="x")
+            tk.Label(
+                bar_frame, text=f"{total_mastered} / {total_topics} topics mastered ({pct}%)",
+                font=FONTS["tiny"], fg=COLOURS["text_muted"], bg=COLOURS["bg_main"],
+            ).pack(anchor="e")
+            return
+
+        make_button(
+            parent, "Take Final Exam →",
+            lambda: self.app.go_cat(mode=config.CAT_MODE_FINAL),
+            variant="gold", pady=6, padx=14, size="small_bold",
+        ).pack(anchor="w", pady=(0, PAD["sm"]))
+
+        if not history:
+            tk.Label(
+                parent, text="No exams taken yet.",
+                font=FONTS["small"], fg=COLOURS["text_muted"], bg=COLOURS["bg_main"],
+            ).pack(anchor="w", pady=(0, PAD["lg"]))
+            return
+
+        for entry in list(reversed(history))[:5]:
+            self._build_cat_history_card(parent, entry, config.CAT_MODE_FINAL)
+
+    def _build_cat_history_card(self, parent: tk.Widget, entry: dict, mode: str) -> None:
+        date_str = entry.get("date", "")
+        try:
+            dt = datetime.fromisoformat(date_str)
+            formatted_date = f"{dt.strftime('%b')} {dt.day}, {dt.year}"
+        except (ValueError, TypeError):
+            formatted_date = date_str[:10] or "—"
+
+        score = entry.get("score_percent", 0)
+        if score >= 80:
+            score_colour = COLOURS["accent_green"]
+        elif score >= 50:
+            score_colour = COLOURS["accent_orange"]
+        else:
+            score_colour = COLOURS["accent_red"]
+
+        if mode == config.CAT_MODE_PRETEST:
+            pass_fail = str(entry.get("pass_fail", "")).title()
+            result_label = {"Pass": "Strong", "Borderline": "Adequate", "Fail": "Weak"}.get(
+                pass_fail, pass_fail
+            )
+        else:
+            result_label = str(entry.get("pass_fail", "")).title()
+
+        answered = entry.get("total_answered", 0)
+        weak_count = len(entry.get("weak_topics", []))
+        elapsed = entry.get("elapsed_seconds", 0)
+        mins, secs = divmod(elapsed, 60)
+
+        row = tk.Frame(
+            parent, bg=COLOURS["bg_card"],
+            highlightthickness=1, highlightbackground=COLOURS["border"],
+        )
+        row.pack(fill="x", pady=(0, PAD["sm"]))
+        inner = tk.Frame(row, bg=COLOURS["bg_card"])
+        inner.pack(fill="x", padx=PAD["md"], pady=PAD["sm"])
+
+        tk.Label(inner, text=formatted_date, font=FONTS["small"], fg=COLOURS["text_secondary"],
+                 bg=COLOURS["bg_card"], width=14, anchor="w").pack(side="left")
+        tk.Label(inner, text=f"{score}%", font=FONTS["small_bold"], fg=score_colour,
+                 bg=COLOURS["bg_card"], width=6, anchor="w").pack(side="left")
+        tk.Label(inner, text=result_label, font=FONTS["small_bold"], fg=COLOURS["text_primary"],
+                 bg=COLOURS["bg_card"], width=12, anchor="w").pack(side="left")
+        tk.Label(inner, text=f"{answered} q", font=FONTS["small"], fg=COLOURS["text_muted"],
+                 bg=COLOURS["bg_card"], width=8, anchor="w").pack(side="left")
+        tk.Label(inner, text=f"{mins}:{secs:02d}", font=FONTS["small"], fg=COLOURS["text_muted"],
+                 bg=COLOURS["bg_card"], width=8, anchor="w").pack(side="left")
+        tk.Label(
+            inner, text=f"{weak_count} weak topic{'s' if weak_count != 1 else ''}",
+            font=FONTS["small"], fg=COLOURS["text_muted"], bg=COLOURS["bg_card"],
+        ).pack(side="left")

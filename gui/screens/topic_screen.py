@@ -27,6 +27,7 @@ from gui.styles import (
     COLOURS, FONTS, PAD, make_button,
     phase_colour, phase_dot,
 )
+from utils.math_renderer import difficulty_label
 
 logger = logging.getLogger(__name__)
 
@@ -269,6 +270,10 @@ class TopicScreen(tk.Frame):
             bg=COLOURS["bg_card"],
         ).pack(anchor="w", pady=(2, 0))
 
+        # Difficulty selector — only shown for unlocked topics
+        if not is_locked:
+            self._build_difficulty_row(left, topic, summary)
+
         # ── Middle: phase indicator dots ────────────────────────────────────
         phases_frame = tk.Frame(inner, bg=COLOURS["bg_card"])
         phases_frame.pack(side="left", padx=PAD["lg"])
@@ -319,6 +324,53 @@ class TopicScreen(tk.Frame):
                 fg=COLOURS["text_muted"],
                 bg=COLOURS["bg_card"],
             ).pack(pady=(2, 0))
+
+    def _build_difficulty_row(
+        self, parent: tk.Widget, topic: str, summary: dict
+    ) -> None:
+        """Build the difficulty selector row: level label + Easy/Medium/Hard buttons."""
+        current = summary.get("difficulty", config.DIFFICULTY_EASY)
+
+        row = tk.Frame(parent, bg=COLOURS["bg_card"])
+        row.pack(anchor="w", pady=(4, 0))
+
+        tk.Label(
+            row,
+            text=f"Current level: {difficulty_label(current)}   ",
+            font=FONTS["tiny"],
+            fg=COLOURS["text_muted"],
+            bg=COLOURS["bg_card"],
+        ).pack(side="left")
+
+        _DIFFICULTY_LABELS = {
+            config.DIFFICULTY_EASY:   "Easy",
+            config.DIFFICULTY_MEDIUM: "Medium",
+            config.DIFFICULTY_HARD:   "Hard",
+        }
+
+        for level in config.DIFFICULTY_ORDER:
+            is_selected = level == current
+            btn = tk.Button(
+                row,
+                text=_DIFFICULTY_LABELS[level],
+                font=FONTS["tiny"],
+                relief="flat",
+                cursor="hand2",
+                bd=0,
+                padx=8,
+                pady=2,
+                bg=COLOURS["accent_blue"] if is_selected else COLOURS["bg_main"],
+                fg=COLOURS["text_white"] if is_selected else COLOURS["text_muted"],
+                activebackground=COLOURS["accent_blue"],
+                activeforeground=COLOURS["text_white"],
+                command=lambda t=topic, lvl=level: self._on_difficulty_click(t, lvl),
+            )
+            btn.pack(side="left", padx=(2, 0))
+
+    def _on_difficulty_click(self, topic: str, difficulty: str) -> None:
+        """Save the chosen difficulty and refresh the screen to reflect it."""
+        self.tracker.set_difficulty(self.subject, topic, difficulty)
+        self.app.go_topic(self.subject)
 
     # -----------------------------------------------------------------------
     # Helpers
@@ -389,9 +441,26 @@ class TopicScreen(tk.Frame):
                 "danger",
             )
 
-        # Mastered — offer replay at higher difficulty
+        # Mastered — offer replay at the next difficulty, or show completion
+        difficulty = summary.get("difficulty", config.DIFFICULTY_EASY)
+        is_maxed = (
+            summary.get("evaluate") == config.STATUS_MASTERED
+            and summary.get("replay_difficulty") == config.DIFFICULTY_ORDER[-1]
+        )
+        if is_maxed:
+            return (
+                f"Completed at {difficulty.title()} ✓",
+                lambda: None,
+                "ghost",
+            )
+
         return (
-            "Replay ↺",
-            lambda t=topic: self.app.go_problem(self.subject, t),
+            f"Replay at {difficulty.title()} difficulty →",
+            lambda t=topic: self._start_replay(t),
             "gold",
         )
+
+    def _start_replay(self, topic: str) -> None:
+        """Reset a mastered topic for a higher-difficulty replay, then go to Learn."""
+        self.tracker.reset_for_replay(self.subject, topic)
+        self.app.go_learn(self.subject, topic)

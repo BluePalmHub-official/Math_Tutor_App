@@ -25,6 +25,7 @@ class ResultScreen(tk.Frame):
                  result_data: dict = None, **kwargs):
         super().__init__(parent, bg=COLOURS["bg_main"])
         self.app         = app
+        self.tracker     = app.tracker
         self.result_data = result_data or {}
         self._build()
 
@@ -260,6 +261,7 @@ class ResultScreen(tk.Frame):
         subject        = self.result_data.get("subject", config.SUBJECT_ALGEBRA)
         topic          = self.result_data.get("topic", "")
         passed         = summary.get("passed", False)
+        mastered       = tracker_result.get("mastered", False)
 
         btn_row = tk.Frame(parent, bg=COLOURS["bg_main"])
         btn_row.pack(fill="x", pady=(0, PAD["lg"]))
@@ -271,8 +273,30 @@ class ResultScreen(tk.Frame):
             variant="ghost", pady=8, padx=16,
         ).pack(side="left")
 
-        if passed:
-            # Replay at current (possibly higher) difficulty
+        if mastered:
+            # Mastered — offer a full Learn → Practice → Evaluate replay at
+            # the next difficulty, or show completion if already at Hard.
+            fresh_summary = self.tracker.get_topic_summary(subject, topic)
+            difficulty = fresh_summary.get("difficulty", config.DIFFICULTY_EASY)
+            is_maxed = (
+                fresh_summary.get("evaluate") == config.STATUS_MASTERED
+                and fresh_summary.get("replay_difficulty") == config.DIFFICULTY_ORDER[-1]
+            )
+            if is_maxed:
+                make_button(
+                    btn_row, f"Completed at {difficulty.title()} ✓",
+                    lambda: None,
+                    variant="ghost", pady=8, padx=16,
+                ).pack(side="right", padx=(PAD["sm"], 0))
+            else:
+                make_button(
+                    btn_row, f"Replay at {difficulty.title()} difficulty →",
+                    lambda: self._start_replay(subject, topic),
+                    variant="gold", pady=8, padx=16,
+                ).pack(side="right", padx=(PAD["sm"], 0))
+        elif passed:
+            # Passed but not mastered (should not occur — same threshold as
+            # mastery — kept as a harmless fallback).
             make_button(
                 btn_row, "Try Again ↺",
                 lambda: self.app.go_problem(subject, topic),
@@ -298,6 +322,11 @@ class ResultScreen(tk.Frame):
             self.app.go_home,
             variant="ghost", pady=8, padx=16,
         ).pack(side="right", padx=(PAD["sm"], 0))
+
+    def _start_replay(self, subject: str, topic: str) -> None:
+        """Reset a mastered topic for a higher-difficulty replay, then go to Learn."""
+        self.tracker.reset_for_replay(subject, topic)
+        self.app.go_learn(subject, topic)
 
     # -----------------------------------------------------------------------
     # Answer review

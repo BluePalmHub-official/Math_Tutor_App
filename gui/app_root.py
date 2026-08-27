@@ -22,6 +22,7 @@ from config import APP_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_MIN_WIDTH, WIN
 from gui.styles import COLOURS, configure_ttk_styles
 from core.progress_tracker import ProgressTracker
 from core.session_manager import SessionManager
+from core.cat_engine import CATEngine
 
 logger = logging.getLogger(__name__)
 
@@ -43,6 +44,7 @@ class AppRoot:
         self.tracker         = ProgressTracker()
         self.tracker.load()
         self.session_manager = SessionManager(self.tracker)
+        self.cat_engine       = CATEngine(self.tracker)
 
         # Container frame that fills the window — screens are placed inside it
         self.container = tk.Frame(self.root, bg=COLOURS["bg_main"])
@@ -106,6 +108,8 @@ class AppRoot:
             "problem":  self._import_problem,
             "result":   self._import_result,
             "progress": self._import_progress,
+            "cat":        self._import_cat,
+            "cat_result": self._import_cat_result,
         }
 
         factory = SCREEN_MAP.get(screen_name)
@@ -170,6 +174,14 @@ class AppRoot:
         from gui.screens.progress_screen import ProgressScreen
         return ProgressScreen
 
+    def _import_cat(self):
+        from gui.screens.cat_screen import CATScreen
+        return CATScreen
+
+    def _import_cat_result(self):
+        from gui.screens.cat_result_screen import CATResultScreen
+        return CATResultScreen
+
     # -----------------------------------------------------------------------
     # Convenience navigation methods (called by screens)
     # -----------------------------------------------------------------------
@@ -205,6 +217,14 @@ class AppRoot:
     def go_progress(self) -> None:
         """Navigate to the overall progress dashboard."""
         self.show_screen("progress")
+
+    def go_cat(self, mode: str = "pretest") -> None:
+        """Navigate to a CAT session (pre-test or final exam)."""
+        self.show_screen("cat", mode=mode)
+
+    def go_cat_result(self, summary: dict) -> None:
+        """Navigate to the CAT result screen."""
+        self.show_screen("cat_result", summary=summary)
 
     # -----------------------------------------------------------------------
     # Error fallback screen
